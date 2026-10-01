@@ -11,6 +11,7 @@ const baileysReady = import('baileys').then((baileys) => {
   ({ makeWASocket, useMultiFileAuthState, fetchLatestBaileysVersion, DisconnectReason } = baileys);
   return baileys;
 });
+require('dotenv').config();
 const { Boom } = require("@hapi/boom");
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs-extra');
@@ -25,10 +26,18 @@ const proxyManager = require('./src/lib/proxy-manager');
 // ============================================
 // HARDCODED CONFIG
 // ============================================
-const OWNER_TELEGRAM_ID = '7213308911';
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8038213130:AAFg0Rll3F4FIFcaj39Y8cobueH3d28eBVM';
-const OWNER_USERNAME = '@mr_darkvenom';
-const DEVELOPER_LINK = 'https://t.me/mr_darkvenom';
+const OWNER_TELEGRAM_ID = process.env.OWNER_TELEGRAM_ID || '';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const TELEGRAM_CONFIGURED = Boolean(TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.startsWith('REPLACE_'));
+const OWNER_USERNAME = process.env.OWNER_USERNAME || '';
+const DEVELOPER_LINK = process.env.DEVELOPER_LINK || '';
+
+if (!TELEGRAM_CONFIGURED) {
+  console.warn(chalk.yellow('⚠️ TELEGRAM_BOT_TOKEN is not configured. Telegram polling is disabled.'));
+}
+if (!OWNER_TELEGRAM_ID || !OWNER_USERNAME || !DEVELOPER_LINK) {
+  console.warn(chalk.yellow('⚠️ Owner/developer settings are incomplete in .env.'));
+}
 
 // ── Bot images — replace these URLs with your own catbox uploads ──
 const IMG_MAIN     = 'https://cdn.kord.live/serve/g6bZo41kYKxd.jpg'; // /start screen
@@ -293,7 +302,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
 // TELEGRAM BOT INITIALIZATION
 // ============================================
 let telegramBot;
-if (TELEGRAM_BOT_TOKEN && TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE') {
+if (TELEGRAM_CONFIGURED) {
   telegramBot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
   console.log(chalk.green("✅ VENOM CRASHER Telegram Bot Initialized"));
 

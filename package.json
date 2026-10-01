@@ -23,7 +23,8 @@
     "libphonenumber-js": "^1.10.56",
     "node-telegram-bot-api": "^0.66.0",
     "parse-ms": "^2.1.0",
-    "socks-proxy-agent": "^8.0.5"
+    "socks-proxy-agent": "^8.0.5",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
