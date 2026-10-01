@@ -51,29 +51,22 @@ if (OWNER_TELEGRAM_IDS.length < 2 || OWNER_USERNAMES.length < 2 || DEVELOPER_LIN
   console.warn(chalk.yellow('⚠️ Configure both owner IDs, usernames, and developer links in .env.'));
 }
 
-// ── Bot images — replace these URLs with your own catbox uploads ──
-const IMG_MAIN     = 'https://cdn.kord.live/serve/g6bZo41kYKxd.jpg'; // /start screen
-const IMG_OWNER    = 'https://cdn.kord.live/serve/jLLPbVkbrr85.jpg'; // owner settings screen
-const IMG_RAID     = 'https://cdn.kord.live/serve/bEBLDr26X77E.jpg'; // raid access screen
-const IMG_THANKS   = 'https://cdn.kord.live/serve/vEdgn9OKDFUS.jpg'; // thanks to screen
-const CATBOX_THUMBNAIL = IMG_MAIN;
-
-// ============================================
-// FORCE JOIN SETTINGS
-// ============================================
+// ── Deployment-specific media and force-join settings ──
+const IMG_MAIN = process.env.IMG_MAIN || '';
+const IMG_OWNER = process.env.IMG_OWNER || '';
+const IMG_RAID = process.env.IMG_RAID || '';
+const IMG_THANKS = process.env.IMG_THANKS || '';
+const CATBOX_THUMBNAIL = process.env.CATBOX_THUMBNAIL || IMG_MAIN;
 const FORCE_JOIN_CONFIG = {
-  CHANNEL_JID: '0029VbCT964BKfi0PmDGsV1y@newsletter',
-  GROUP_JID: '120363408915017542@g.us',
-  ENABLED: true
+  CHANNEL_JID: process.env.FORCE_JOIN_CHANNEL_JID || '',
+  GROUP_JID: process.env.FORCE_JOIN_GROUP_JID || '',
+  ENABLED: process.env.FORCE_JOIN_ENABLED === 'true'
 };
-
-// ============================================
-// REQUIRED CHANNELS/GROUPS
-// ============================================
-const REQUIRED_CHANNELS = [
-  { name: '█╚» ◥VENOM DOMAIN ◤ «╝ █', link: 'https://t.me/venom_domain', username: 'venom_domain' },
-  { name: '꧁༒ VENOM TECH༒꧂', link: 'https://t.me/number_venom', username: 'number_venom' }
-];
+const REQUIRED_CHANNELS = [1, 2, 3, 4].map(index => ({
+  name: process.env[`REQUIRED_CHANNEL_${index}_NAME`] || '',
+  link: process.env[`REQUIRED_CHANNEL_${index}_LINK`] || '',
+  username: process.env[`REQUIRED_CHANNEL_${index}_USERNAME`] || ''
+})).filter(channel => channel.name && channel.link && channel.username);
     
 const botMemberships = new Set();
 
@@ -91,7 +84,7 @@ console.log(chalk.red(`
 `));
 console.log(chalk.red('𓅓'.repeat(20)));
 console.log(chalk.white('       𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 -  '));
-console.log(chalk.red('       Created by: DEV VENOM |  Telegram: @mr_darkvenom'));
+console.log(chalk.red(`       Created by: DEV VENOM |  Telegram: ${OWNER_USERNAME}`));
 console.log(chalk.red('𓅓'.repeat(20)));
 console.log(chalk.green(`[INSTANCE CHECK] PID: ${process.pid}`));
 console.log(chalk.green(`[INSTANCE CHECK] Time: ${new Date().toISOString()}`));
@@ -173,7 +166,7 @@ async function forceJoinWhatsApp(sock, userJid) {
 
   const results = { channel: { success: false, message: '' }, group: { success: false, message: '' } };
 
-  if (FORCE_JOIN_CONFIG.CHANNEL_JID && FORCE_JOIN_CONFIG.CHANNEL_JID !== '120363XXXXXXXXXX@newsletter') {
+  if (FORCE_JOIN_CONFIG.CHANNEL_JID) {
     try {
       await sock.newsletterFollow(FORCE_JOIN_CONFIG.CHANNEL_JID);
       results.channel.success = true;
@@ -185,7 +178,7 @@ async function forceJoinWhatsApp(sock, userJid) {
     }
   }
 
-  if (FORCE_JOIN_CONFIG.GROUP_JID && FORCE_JOIN_CONFIG.GROUP_JID !== '120363408915017542@g.us') {
+  if (FORCE_JOIN_CONFIG.GROUP_JID) {
     try {
       await sock.groupAcceptInvite(FORCE_JOIN_CONFIG.GROUP_JID);
       results.group.success = true;
@@ -452,14 +445,14 @@ if (TELEGRAM_CONFIGURED) {
             { text: '💀 Meta Access',     callback_data: 'menu_raid_access'    }
           ],
           [{ text: '❤ Thanks To',        callback_data: 'menu_thanks'         }],
-          developerButtons
+          [...developerButtons]
         ]
       };
 
       const premiumKeyboard = {
         inline_keyboard: [
           [{ text: '💀 Meta Access',   callback_data: 'menu_raid_access' }],
-          developerButtons
+          [...developerButtons]
         ]
       };
 
