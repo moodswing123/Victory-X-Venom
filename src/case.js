@@ -11,6 +11,10 @@ const path = require('path');
 const chalk = require('chalk');
 const os = require('os');
 const helpers = require('./lib/helpers');
+require('dotenv').config();
+const DEVELOPER_LINKS = [process.env.DEVELOPER_LINK_1, process.env.DEVELOPER_LINK_2]
+  .map(value => String(value || '').trim())
+  .filter(Boolean);
 let generateWAMessageContent, generateWAMessageFromContent, generateMessageID, proto;
 const baileysReady = import('baileys').then((baileys) => {
   ({ generateWAMessageContent, generateWAMessageFromContent, generateMessageID, proto } = baileys);
@@ -46,7 +50,7 @@ console.log('');
 // ============================================
 global.botStartTime = Date.now();
 
-const DEVELOPER_LINK = 'https://t.me/mr_darkvenom';
+const DEVELOPER_LINK = DEVELOPER_LINKS[0] || '';
 
 // ============================================
 // HOST DETECTION
@@ -165,8 +169,8 @@ console.log(chalk.green('✅ 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 h
 async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
   // ── Load media ──
-  const menuImagePath = path.join(__dirname, '..', 'media', 'menu.jpg');
-  const menuVideoPath = path.join(__dirname, '..', 'media', 'menu.mp4');
+  const menuImagePath = path.join(__dirname, '..', 'Assets', 'menu.jpg');
+  const menuVideoPath = path.join(__dirname, '..', 'Assets', 'menu.mp4');
 
   let mediaBuffer = null;
   let mediaType = null;
@@ -233,14 +237,14 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
             messageParamsJson,
             buttons: [
-              {
+              ...DEVELOPER_LINKS.map((url, index) => ({
                 name: 'cta_url',
                 buttonParamsJson: JSON.stringify({
-                  display_text: '𓅓Contact Dev',
-                  url: DEVELOPER_LINK,
-                  merchant_url: DEVELOPER_LINK
+                  display_text: `𓅓Contact Dev ${index + 1}`,
+                  url,
+                  merchant_url: url
                 })
-              },
+              })),
               {
                 name: 'single_select',
                 buttonParamsJson: JSON.stringify({
