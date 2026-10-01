@@ -1,0 +1,31 @@
+{
+  "name": "Mystic crasher",
+  "version": "1.0.0",
+  "description": "THE ULTIMATE KILLER",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "@mystichimself",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.6.8",
+    "baileys": "^7.0.0-rc13",
+    "chalk": "^4.1.2",
+    "fs-extra": "^10.0.0",
+    "https-proxy-agent": "^7.0.6",
+    "libphonenumber-js": "^1.10.56",
+    "node-telegram-bot-api": "^0.66.0",
+    "parse-ms": "^2.1.0",
+    "socks-proxy-agent": "^8.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
