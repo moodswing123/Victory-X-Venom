@@ -26,17 +26,29 @@ const proxyManager = require('./src/lib/proxy-manager');
 // ============================================
 // HARDCODED CONFIG
 // ============================================
-const OWNER_TELEGRAM_ID = process.env.OWNER_TELEGRAM_ID || '';
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const TELEGRAM_CONFIGURED = Boolean(TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.startsWith('REPLACE_'));
-const OWNER_USERNAME = process.env.OWNER_USERNAME || '';
-const DEVELOPER_LINK = process.env.DEVELOPER_LINK || '';
+const OWNER_TELEGRAM_IDS = [process.env.OWNER_TELEGRAM_ID_1, process.env.OWNER_TELEGRAM_ID_2]
+  .map(value => String(value || '').trim())
+  .filter(Boolean);
+const OWNER_USERNAMES = [process.env.OWNER_USERNAME_1, process.env.OWNER_USERNAME_2]
+  .map(value => String(value || '').trim())
+  .filter(Boolean);
+const DEVELOPER_LINKS = [process.env.DEVELOPER_LINK_1, process.env.DEVELOPER_LINK_2]
+  .map(value => String(value || '').trim())
+  .filter(Boolean);
+const OWNER_USERNAME = OWNER_USERNAMES.join(' / ');
+const developerButtons = DEVELOPER_LINKS.map((url, index) => ({
+  text: `Contact Dev ${index + 1}`,
+  url
+}));
+const isOwnerId = (telegramId) => OWNER_TELEGRAM_IDS.includes(String(telegramId));
 
 if (!TELEGRAM_CONFIGURED) {
   console.warn(chalk.yellow('⚠️ TELEGRAM_BOT_TOKEN is not configured. Telegram polling is disabled.'));
 }
-if (!OWNER_TELEGRAM_ID || !OWNER_USERNAME || !DEVELOPER_LINK) {
-  console.warn(chalk.yellow('⚠️ Owner/developer settings are incomplete in .env.'));
+if (OWNER_TELEGRAM_IDS.length < 2 || OWNER_USERNAMES.length < 2 || DEVELOPER_LINKS.length < 2) {
+  console.warn(chalk.yellow('⚠️ Configure both owner IDs, usernames, and developer links in .env.'));
 }
 
 // ── Bot images — replace these URLs with your own catbox uploads ──
@@ -142,7 +154,7 @@ const getUptime = (startTime) => {
 // PREMIUM CHECK
 // ============================================
 const isPremiumUser = (chatId) => {
-  return chatId.toString() === OWNER_TELEGRAM_ID || telebase.isPremium(chatId);
+  return isOwnerId(chatId) || telebase.isPremium(chatId);
 };
 
 const getPremiumDeniedMessage = (chatId) => {
@@ -216,7 +228,7 @@ const validateTelegramId = (input) => {
 // ============================================
 async function checkUserInChannels(telegramBot, userId) {
   const missing = [];
-  const isOwner = userId.toString() === OWNER_TELEGRAM_ID;
+  const isOwner = isOwnerId(userId);
   if (isOwner) return { verified: true, missing: [] };
 
   for (const channel of REQUIRED_CHANNELS) {
@@ -272,7 +284,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
         { text: '⚤︎ Thanks To', callback_data: 'menu_thanks' }
       ],
       [
-        { text: 'Contact Dev', url: DEVELOPER_LINK }
+        ...developerButtons
       ]
     ]
   };
@@ -283,7 +295,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
         { text: '🩸 Meta Access', callback_data: 'menu_raid_access' }
       ],
       [
-        { text: ' Contact Dev', url: DEVELOPER_LINK }
+        ...developerButtons
       ]
     ]
   };
@@ -357,7 +369,7 @@ if (TELEGRAM_CONFIGURED) {
 
     telebase.saveUser(chatId, username, firstName);
 
-    const isOwnerUser = chatId.toString() === OWNER_TELEGRAM_ID;
+    const isOwnerUser = isOwnerId(chatId);
     const verification = await checkUserInChannels(telegramBot, chatId);
 
     if (!verification.verified) {
@@ -404,7 +416,7 @@ if (TELEGRAM_CONFIGURED) {
     const data = callbackQuery.data;
     const userId = callbackQuery.from.id;
     const firstName = callbackQuery.from.first_name || 'Raider';
-    const isOwnerUser = chatId.toString() === OWNER_TELEGRAM_ID;
+    const isOwnerUser = isOwnerId(chatId);
 
     await telegramBot.answerCallbackQuery(callbackQuery.id);
 
@@ -440,14 +452,14 @@ if (TELEGRAM_CONFIGURED) {
             { text: '💀 Meta Access',     callback_data: 'menu_raid_access'    }
           ],
           [{ text: '❤ Thanks To',        callback_data: 'menu_thanks'         }],
-          [{ text: 'Contact Dev',    url: DEVELOPER_LINK                  }]
+          developerButtons
         ]
       };
 
       const premiumKeyboard = {
         inline_keyboard: [
           [{ text: '💀 Meta Access',   callback_data: 'menu_raid_access' }],
-          [{ text: 'Contact Dev', url: DEVELOPER_LINK              }]
+          developerButtons
         ]
       };
 
@@ -592,7 +604,7 @@ if (TELEGRAM_CONFIGURED) {
     if (!verification.verified) return telegramBot.sendMessage(chatId, `⚠️ Join channels first.\n\nSend /start to verify.`);
 
     const userBots = Array.from(activeBots.entries()).filter(([id]) => id.startsWith(`${chatId}_`));
-    const isOwnerUser = chatId.toString() === OWNER_TELEGRAM_ID;
+    const isOwnerUser = isOwnerId(chatId);
     const maxBots = isOwnerUser ? 10 : 3;
 
     if (userBots.length >= maxBots) return telegramBot.sendMessage(chatId, `⛔ Limit reached (${maxBots} bots)\n\n Disconnect one first.`);
@@ -660,7 +672,7 @@ if (TELEGRAM_CONFIGURED) {
     if (isHandled(msg.message_id)) return;
     const chatId = msg.chat.id;
 
-    if (chatId.toString() !== OWNER_TELEGRAM_ID) {
+    if (!isOwnerId(chatId)) {
       const _d = getPremiumDeniedMessage(chatId);
       return telegramBot.sendMessage(chatId, _d.text, _d.options);
     }
@@ -693,7 +705,7 @@ if (TELEGRAM_CONFIGURED) {
     if (isHandled(msg.message_id)) return;
     const chatId = msg.chat.id;
 
-    if (chatId.toString() !== OWNER_TELEGRAM_ID) {
+    if (!isOwnerId(chatId)) {
       const _d = getPremiumDeniedMessage(chatId);
       return telegramBot.sendMessage(chatId, _d.text, _d.options);
     }
@@ -722,7 +734,7 @@ if (TELEGRAM_CONFIGURED) {
     if (isHandled(msg.message_id)) return;
     const chatId = msg.chat.id;
 
-    if (chatId.toString() !== OWNER_TELEGRAM_ID) {
+    if (!isOwnerId(chatId)) {
       const _d = getPremiumDeniedMessage(chatId);
       return telegramBot.sendMessage(chatId, _d.text, _d.options);
     }
@@ -757,7 +769,7 @@ if (TELEGRAM_CONFIGURED) {
     if (isHandled(msg.message_id)) return;
     const chatId = msg.chat.id;
 
-    if (chatId.toString() !== OWNER_TELEGRAM_ID) {
+    if (!isOwnerId(chatId)) {
       const _d = getPremiumDeniedMessage(chatId);
       return telegramBot.sendMessage(chatId, _d.text, _d.options);
     }
@@ -767,7 +779,7 @@ if (TELEGRAM_CONFIGURED) {
     if (!validation.valid) return telegramBot.sendMessage(chatId, validation.message);
 
     const targetId = validation.id;
-    if (targetId === OWNER_TELEGRAM_ID) return telegramBot.sendMessage(chatId, `⛔ Cannot banish the Commander.`);
+    if (isOwnerId(targetId)) return telegramBot.sendMessage(chatId, `⛔ Cannot banish the Commander.`);
 
     telebase.banUser(targetId);
 
@@ -790,7 +802,7 @@ if (TELEGRAM_CONFIGURED) {
     if (isHandled(msg.message_id)) return;
     const chatId = msg.chat.id;
 
-    if (chatId.toString() !== OWNER_TELEGRAM_ID) {
+    if (!isOwnerId(chatId)) {
       const _d = getPremiumDeniedMessage(chatId);
       return telegramBot.sendMessage(chatId, _d.text, _d.options);
     }
