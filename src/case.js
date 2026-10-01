@@ -165,6 +165,25 @@ console.log(chalk.green('✅ 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 h
 // MENU SENDERS
 // ============================================
 
+// ── Reliable fallback menu ──
+async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
+  const developerLines = DEVELOPER_LINKS.length
+    ? DEVELOPER_LINKS.map((url, index) => `Contact Dev ${index + 1}: ${url}`).join('\n')
+    : 'Developer links are not configured.';
+  const text =
+    `「☠︎」VENOM CRASHER MENU\n\n` +
+    `Prefix: ${prefix || '.'}\n` +
+    `• ${prefix || '.'}ping\n` +
+    `• ${prefix || '.'}pair <phone_number>\n` +
+    `• ${prefix || '.'}disconnect <phone_number>\n` +
+    `• ${prefix || '.'}stats\n` +
+    `• ${prefix || '.'}addsudo <number>\n` +
+    `• ${prefix || '.'}delsudo <number>\n\n` +
+    `${developerLines}`;
+  await sock.sendMessage(chatId, { text }, { quoted: fakeQuote });
+  if (reason) console.error(`[menu] Rich menu unavailable: ${reason}`);
+}
+
 // ── SEND MAIN MENU (called by .menu cmd and button response) ──
 async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
@@ -1131,7 +1150,11 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
 
           // ── MENU ──
           case 'menu': {
-            await sendMainMenu(sock, chatId, fakeQuote, prefix);
+            try {
+              await sendMainMenu(sock, chatId, fakeQuote, prefix);
+            } catch (err) {
+              await sendPlainMenu(sock, chatId, fakeQuote, prefix, err?.stack || err?.message || String(err));
+            }
             break;
           }
 
