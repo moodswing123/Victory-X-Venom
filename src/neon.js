@@ -202,104 +202,29 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
     mediaType = 'image';
   }
 
-  let headerImage = null;
-  let headerVideo = null;
+  const menuCaption =
+    `「☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬\n\n` +
+    `Prefix: ${prefix || '.'}\n` +
+    `• ${prefix || '.'}ping\n` +
+    `• ${prefix || '.'}neon-ios\n` +
+    `• ${prefix || '.'}neon-android\n` +
+    `• ${prefix || '.'}neon-devine-freeze\n` +
+    `• ${prefix || '.'}neon-freeze\n` +
+    `• ${prefix || '.'}neon-delay\n` +
+    `• ${prefix || '.'}neon-invasion\n` +
+    `• ${prefix || '.'}neon-gc\n` +
+    `• ${prefix || '.'}neon-list\n\n` +
+    `NEON BUG — select a command to continue.`;
 
   if (mediaBuffer && mediaType === 'image') {
-    const imgMsg = await generateWAMessageContent(
-      { image: mediaBuffer },
-      { upload: sock.waUploadToServer }
-    );
-    headerImage = imgMsg.imageMessage;
-  } else if (mediaBuffer && mediaType === 'video') {
-    const vidMsg = await generateWAMessageContent(
-      { video: mediaBuffer },
-      { upload: sock.waUploadToServer }
-    );
-    headerVideo = vidMsg.videoMessage;
+    await sock.sendMessage(chatId, { image: mediaBuffer, caption: menuCaption }, { quoted: fakeQuote });
+    return;
   }
-
-  // ── Body caption ──
-  const menuCaption =
-    `「☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 · ʙʏ NEON BUG「☠︎」\n` +
-    `WHO DECIDED THATa`;
-
-  // ── 🏷️ tag card via messageParamsJson ──
-  const messageParamsJson = JSON.stringify({
-    limited_time_offer: {
-      text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
-      url: DEVELOPER_LINK,
-      copy_code: '「☠︎」NEON BUG',
-      expiration_time: Date.now() * 999
-    }
-  });
-
-  const mainMenuMsg = generateWAMessageFromContent(chatId, {
-    viewOnceMessage: {
-      message: {
-        messageContextInfo: {
-          deviceListMetadata: {},
-          deviceListMetadataVersion: 2
-        },
-        interactiveMessage: proto.Message.InteractiveMessage.create({
-          body: proto.Message.InteractiveMessage.Body.create({
-            text: menuCaption
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 '
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            hasMediaAttachment: (headerImage || headerVideo) ? true : false,
-            ...(headerImage && { imageMessage: headerImage }),
-            ...(headerVideo && { videoMessage: headerVideo })
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            messageParamsJson,
-            buttons: [
-              ...DEVELOPER_LINKS.map((url, index) => ({
-                name: 'cta_url',
-                buttonParamsJson: JSON.stringify({
-                  display_text: `𓅓Contact Dev ${index + 1}`,
-                  url,
-                  merchant_url: url
-                })
-              })),
-              {
-                name: 'single_select',
-                buttonParamsJson: JSON.stringify({
-                  title: '「☠︎」Select Menu',
-                  sections: [
-                    {
-                      title: '𓆙 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
-                      highlight_label: 'NEON BUG',
-                      rows: [
-                        {
-                          header: '𓅓META BUGS',
-                          title: '𓅓META Bugs',
-                          description: 'Android · iOS · GC attack commands',
-                          id: 'open_neon_modules'
-                        },
-                        {
-                          header: '𓅓SYSTEM',
-                          title: '𓅓System',
-                          description: 'Protection · Sudo · Group · Utils',
-                          id: 'open_system'
-                        }
-                      ]
-                    }
-                  ]
-                })
-              }
-            ]
-          })
-        })
-      }
-    }
-  }, { quoted: fakeQuote });
-
-  await sock.relayMessage(chatId, mainMenuMsg.message, {
-    messageId: mainMenuMsg.key.id
-  });
+  if (mediaBuffer && mediaType === 'video') {
+    await sock.sendMessage(chatId, { video: mediaBuffer, caption: menuCaption }, { quoted: fakeQuote });
+    return;
+  }
+  await sock.sendMessage(chatId, { text: menuCaption }, { quoted: fakeQuote });
 }
 
 // ── SEND CATEGORY LIST (Raid Bugs / System) ──
@@ -1060,9 +985,10 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
         let isSudo = false;
 
         if (botPhoneNumber) {
-          const cleanSender = normalizeNumber(senderNumber);
           const cleanBotPhone = normalizeNumber(botPhoneNumber);
-          isOwner = cleanSender === cleanBotPhone ||
+          const resolvedSender = resolveOwnerNumber(sender, groupMetadata) || senderNumber;
+          const cleanSender = normalizeNumber(resolvedSender);
+          isOwner = Boolean(msg.key.fromMe) || cleanSender === cleanBotPhone ||
             cleanSender.endsWith(cleanBotPhone) ||
             cleanBotPhone.endsWith(cleanSender);
 
