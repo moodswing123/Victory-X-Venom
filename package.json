@@ -1,14 +1,14 @@
 {
-  "name": "Mystic crasher",
+  "name": "Neon bug",
   "version": "1.0.0",
-  "description": "THE ULTIMATE KILLER",
+  "description": "NEON SHALL RISE",
   "main": "index.js",
   "scripts": {
     "setup": "node setup.js",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "@mystichimself",
+  "author": "@victory_is_h1m",
   "license": "MIT",
   "engines": {
     "node": ">=20"
