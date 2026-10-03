@@ -419,7 +419,7 @@ if (TELEGRAM_CONFIGURED) {
       const menuVideoPath = path.join(__dirname, 'assets', 'menu.mp4');
 
       const ownerMenuText =
-        `<blockquote> ☠︎︎𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬\n\n` +
+        `<blockquote> ☠︎︎𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬\n\n` +
         `○ 𝗔𝘂𝘁𝗵𝗼𝗿 : ${OWNER_USERNAME}\n` +
         `○ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 : 1.1.0\n` +
         `○ 𝗣𝗿𝗲𝗳𝗶𝘅 : (/) \n` +
@@ -497,7 +497,7 @@ if (TELEGRAM_CONFIGURED) {
         `⚡ /ban &lt;id&gt; — 𝗕𝗮𝗻𝗶𝘀𝗵 User\n` +
         `⚡ /unban &lt;id&gt; — 𝗥𝗲𝗱𝗲𝗲𝗺 User\n\n` +
         `━━━━━━━━━━━━━━━━━━▼・ᴥ・▼━━━━━━━━━━━━━━━━━\n` +
-        `   𓅓 "𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝗣𝗮𝗻𝗲𝗹"</blockquote>`;
+        `   𓅓 "𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝗣𝗮𝗻𝗲𝗹"</blockquote>`;
 
       const keyboard = {
         inline_keyboard: [
