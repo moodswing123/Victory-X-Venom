@@ -651,7 +651,7 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       break;
 
     case 'btn_neon-freeze':
-      await askForTarget(sock, chatId, sessionKey, 'neon-freeze', 'NEON OBITO 🍎', fakeQuote);
+      await askForTarget(sock, chatId, sessionKey, 'neon-freeze', 'NEON FREEZE 🍎', fakeQuote);
       break;
 
     case 'btn_neon-gc':
@@ -1571,7 +1571,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
             break;
           }
 
-          // ── NEON OBITO (NEW — PLACEHOLDER) ──
+          // ── NEON FREEZE (NEW — PLACEHOLDER) ──
           case 'neon-freeze': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
