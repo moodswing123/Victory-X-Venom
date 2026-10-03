@@ -39,6 +39,7 @@ const loadOwnerConfig = () => {
 const saveOwnerConfig = (data) => {
   try {
     const filePath = getOwnerFilePath();
+    fs.ensureDirSync(path.dirname(filePath));
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
     return true;
   } catch (e) {
@@ -63,6 +64,7 @@ const loadSudoConfig = () => {
 const saveSudoConfig = (data) => {
   try {
     const filePath = getSudoFilePath();
+    fs.ensureDirSync(path.dirname(filePath));
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
     return true;
   } catch (e) {

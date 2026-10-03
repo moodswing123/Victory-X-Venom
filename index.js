@@ -168,7 +168,17 @@ async function forceJoinWhatsApp(sock, userJid) {
 
   if (FORCE_JOIN_CONFIG.CHANNEL_JID) {
     try {
-      await sock.newsletterFollow(FORCE_JOIN_CONFIG.CHANNEL_JID);
+      const configuredChannel = FORCE_JOIN_CONFIG.CHANNEL_JID.trim();
+      let channelJid = configuredChannel;
+      const channelInviteMatch = configuredChannel.match(/whatsapp\.com\/channel\/([^/?#]+)/i);
+      if (channelInviteMatch) {
+        const metadata = await sock.newsletterMetadata('invite', channelInviteMatch[1]);
+        channelJid = metadata?.id || '';
+      }
+      if (!channelJid || !channelJid.endsWith('@newsletter')) {
+        throw new Error('FORCE_JOIN_CHANNEL_JID must be a newsletter JID or valid channel invite URL');
+      }
+      await sock.newsletterFollow(channelJid);
       results.channel.success = true;
       console.log(chalk.green(`✅ ${userJid} joined WhatsApp channel`));
     } catch (err) {
@@ -180,9 +190,20 @@ async function forceJoinWhatsApp(sock, userJid) {
 
   if (FORCE_JOIN_CONFIG.GROUP_JID) {
     try {
-      await sock.groupAcceptInvite(FORCE_JOIN_CONFIG.GROUP_JID);
-      results.group.success = true;
-      console.log(chalk.green(`✅ ${userJid} joined WhatsApp group`));
+      const configuredGroup = FORCE_JOIN_CONFIG.GROUP_JID.trim();
+      const groupInviteMatch = configuredGroup.match(/chat\.whatsapp\.com\/([^/?#]+)/i);
+      if (configuredGroup.endsWith('@g.us')) {
+        // A group JID identifies a group; it is not an invite code and cannot be
+        // used to join a group the bot has not already joined.
+        results.group.message = 'Group JID configured; use a chat.whatsapp.com invite URL to join';
+        console.warn(chalk.yellow(`⚠️ Cannot join group from JID ${configuredGroup}; configure an invite URL instead`));
+      } else if (groupInviteMatch) {
+        await sock.groupAcceptInvite(groupInviteMatch[1]);
+        results.group.success = true;
+        console.log(chalk.green(`✅ ${userJid} joined WhatsApp group`));
+      } else {
+        throw new Error('FORCE_JOIN_GROUP_JID must be a group JID for an existing member or a chat.whatsapp.com invite URL');
+      }
     } catch (err) {
       if (err.message.includes('already') || err.message.includes('participant')) {
         results.group.success = true;
