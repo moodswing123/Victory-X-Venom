@@ -1,5 +1,5 @@
 {
-  "name": "Neon bug",
+  "name": "neon-bug",
   "version": "1.0.0",
   "description": "NEON SHALL RISE",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "@victory_is_h1m",
+  "author": "NEON BUG",
   "license": "MIT",
   "engines": {
     "node": ">=20"

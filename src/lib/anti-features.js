@@ -1,9 +1,9 @@
  /*
  * ============================================
- * ANTI-FEATURES.JS - 𝗥𝗔𝗜𝗗 𝗖𝗥𝗔𝗦𝗛𝗘𝗥
- * ☠️ NIGHT RAIDERS CLAN ☠️
- * Created by: 𝐋 𝐎 𝐑 𝐃 ♰ 𝔻 𝐄 𝐕 𝐈 𝐍 𝐄
- * Telegram: @Heis_Devine
+ * ANTI-FEATURES.JS - 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮
+ * ☠️ NEON BUG MODULES ☠️
+ * Created by: NEON BUG
+ * Telegram: NEON BUG
  * ============================================
  */
 
@@ -12,7 +12,7 @@ const { getOwnerConfig, resolveOwnerNumber } = require('./owner');
 const chalk = require('chalk');
 
 // ============================================
-// NIGHT RAIDERS BRANDING
+// NEON BUG BRANDING
 // ============================================
 const WHATSAPP_CHANNEL_LINK = 'https://whatsapp.com/channel/0029VbBzT7rIXnllhwr5Ms2a';
 const CATBOX_THUMBNAIL = 'https://files.catbox.moe/0jb1o3.jpg';
@@ -20,7 +20,7 @@ const CATBOX_THUMBNAIL = 'https://files.catbox.moe/0jb1o3.jpg';
 const getExternalAdReply = () => {
   return {
     externalAdReply: {
-      title: "𓅓 ᴍʏsᴛɪᴄ ᴄʀᴀsʜᴇʀ ",
+      title: "𓅓 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 ",
       body: "ᴋɴᴏᴡ ᴛʜᴇ ᴘᴀɪɴ",
       thumbnailUrl: CATBOX_THUMBNAIL,
       sourceUrl: WHATSAPP_CHANNEL_LINK,
@@ -37,7 +37,7 @@ const createFakeQuote = () => {
       fromMe: false
     },
     message: {
-      conversation: "☠️ ᴍʏsᴛɪᴄ  ᴄʀᴀsʜᴇʀ"
+      conversation: "☠️ 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮"
     }
   };
 };
@@ -48,11 +48,11 @@ const createFakeQuote = () => {
 const ANTISPAM_REPLIES = [
   "sᴘᴀᴍ ᴅᴇᴛᴇᴄᴛᴇᴅ, ʏᴏᴜ sᴛᴜᴘɪᴅ ғᴜᴄᴋ! ʏᴏᴜʀ sᴘᴀᴍ ɢᴀᴍᴇ ɪs ᴡᴇᴀᴋᴇʀ ᴛʜᴀɴ ʏᴏᴜʀ ᴄʜᴀʀᴀᴄᴛᴇʀ. ᴋᴇᴇᴘ ᴛʜᴀᴛ sʜɪᴛ ᴛᴏ ʏᴏᴜʀsᴇʟғ ᴏʀ ɢᴇᴛ sᴡᴇᴘᴛ ɪɴᴛᴏ ᴛʜᴇ ᴛʀᴀsʜ ʙɪɴ.",
   "sᴛᴏᴘ ғʟᴏᴏᴅɪɴɢ ᴛʜᴇ ᴄʜᴀᴛ, ʏᴏᴜ ʙʀᴀɪɴ-ᴅᴇᴀᴅ ɪᴅɪᴏᴛ! ɴᴏʙᴏᴅʏ ᴡᴀɴᴛs ʏᴏᴜʀ ᴄᴏɴsᴛᴀɴᴛ ɴᴏɪsᴇ. sʜᴜᴛ ᴛʜᴇ ғᴜᴄᴋ ᴜᴘ.",
-  "ᴛᴏᴏ ᴍᴜᴄʜ ɴᴏɪsᴇ, ʏᴏᴜ ᴇɴᴛɪᴛʟᴇᴅ ᴄʟᴏᴡɴ! ᴛʜᴇ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs ᴅᴏɴ'ᴛ ᴛᴏʟᴇʀᴀᴛᴇ ʏᴏᴜʀ ᴄᴏɴsᴛᴀɴᴛ ʙᴜʟʟsʜɪᴛ."
+  "ᴛᴏᴏ ᴍᴜᴄʜ ɴᴏɪsᴇ, ʏᴏᴜ ᴇɴᴛɪᴛʟᴇᴅ ᴄʟᴏᴡɴ! ᴛʜᴇ ɴᴇᴏɴ ʙᴜɢ ᴅᴏɴ'ᴛ ᴛᴏʟᴇʀᴀᴛᴇ ʏᴏᴜʀ ᴄᴏɴsᴛᴀɴᴛ ʙᴜʟʟsʜɪᴛ."
 ];
 
 const ANTISPAM_KICK_REPLIES = [
-  "ʟᴇᴀʀɴ ᴛᴏ sʜᴜᴛ ᴛʜᴇ ғᴜᴄᴋ ᴜᴘ. ᴋɪᴄᴋᴇᴅ ʙʏ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs.",
+  "ʟᴇᴀʀɴ ᴛᴏ sʜᴜᴛ ᴛʜᴇ ғᴜᴄᴋ ᴜᴘ. ᴋɪᴄᴋᴇᴅ ʙʏ ɴᴇᴏɴ ʙᴜɢ.",
   "ᴀᴛᴛᴇɴᴛɪᴏɴ-sᴇᴇᴋɪɴɢ ɪᴅɪᴏᴛ ʀᴇᴍᴏᴠᴇᴅ ғᴏʀ ғʟᴏᴏᴅɪɴɢ. ɢᴏᴏᴅʙʏᴇ.",
   "ʏᴏᴜʀ ᴋᴇʏʙᴏᴀʀᴅ ᴍᴜsᴛ ʙᴇ ʙʀᴏᴋᴇɴ ʟɪᴋᴇ ʏᴏᴜʀ ʙʀᴀɪɴ. ᴋɪᴄᴋᴇᴅ."
 ];
@@ -61,14 +61,14 @@ const ANTISPAM_KICK_REPLIES = [
 // ANTIBOT REPLY TEMPLATES
 // ============================================
 const ANTIBOT_REPLIES = [
-  "ʙᴏᴛ ᴜsᴀɢᴇ ᴅᴇᴛᴇᴄᴛᴇᴅ, ʏᴏᴜ ᴇɴᴛɪᴛʟᴇᴅ ᴛʀᴀsʜ! ɴᴏ ᴜɴᴀᴜᴛʜᴏʀɪᴢᴇᴅ ʙᴏᴛs ɪɴ ᴛʜᴇ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs' ᴅᴏᴍᴀɪɴ.",
+  "ʙᴏᴛ ᴜsᴀɢᴇ ᴅᴇᴛᴇᴄᴛᴇᴅ, ʏᴏᴜ ᴇɴᴛɪᴛʟᴇᴅ ᴛʀᴀsʜ! ɴᴏ ᴜɴᴀᴜᴛʜᴏʀɪᴢᴇᴅ ʙᴏᴛs ɪɴ ᴛʜᴇ ɴᴇᴏɴ ʙᴜɢ' ᴅᴏᴍᴀɪɴ.",
   "ᴏɴʟʏ ʜᴜᴍᴀɴs ᴀʟʟᴏᴡᴇᴅ, ʏᴏᴜ sᴄʀɪᴘᴛ-ʀᴜɴɴɪɴɢ ᴍᴜᴍᴜ! ɢᴇᴛ ʀᴇᴍᴏᴠᴇᴅ ᴀɴᴅ ʀᴇʙᴏᴏᴛ ʏᴏᴜʀ ᴡᴏʀᴛʜʟᴇss ᴠᴘs.",
   "ɴᴏ ʙᴏᴛs ᴘᴇʀᴍɪᴛᴛᴇᴅ ɪɴ ᴛʜᴇ ʀᴀɪᴅᴇʀs' ᴅᴏᴍᴀɪɴ!"
 ];
 
 const ANTIBOT_KICK_REPLIES = [
   "ʏᴏᴜʀ ʙᴏᴛ ɪs sᴍᴀʀᴛᴇʀ ᴛʜᴀɴ ʏᴏᴜ ᴀɴᴅ ᴛʜᴀᴛ's sᴀᴅ. ᴋɪᴄᴋᴇᴅ.",
-  "ᴏɴʟʏ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs ᴄᴏɴᴛʀᴏʟ ʙᴏᴛs. ʏᴏᴜ'ʀᴇ ᴊᴜsᴛ ᴛʀᴀsʜ. ʀᴇᴍᴏᴠᴇᴅ.",
+  "ᴏɴʟʏ ɴᴇᴏɴ ʙᴜɢ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛs. ʏᴏᴜ'ʀᴇ ᴊᴜsᴛ ᴛʀᴀsʜ. ʀᴇᴍᴏᴠᴇᴅ.",
   "ᴜɴᴀᴜᴛʜᴏʀɪᴢᴇᴅ ʙᴏᴛ. ʏᴏᴜ'ʀᴇ ɴᴏᴛ sᴘᴇᴄɪᴀʟ ᴇɴᴏᴜɢʜ ᴛᴏ ʙᴇ ʜᴇʀᴇ."
 ];
 
@@ -129,7 +129,7 @@ const clearWarnings = (groupId, userId, featureType) => {
 // HANDLE ANTIBUG
 // Protects owner DMs from bug/crash attacks
 // ============================================
-const handleAntiBug = async (sock, msg, sender, text, isGroupMsg, groupId, botPhoneNumber) => {
+const handleNeonAntibug = async (sock, msg, sender, text, isGroupMsg, groupId, botPhoneNumber) => {
   try {
     if (isGroupMsg) return false;
     if (msg.key.fromMe) return false;
@@ -377,7 +377,7 @@ const handleAntiBug = async (sock, msg, sender, text, isGroupMsg, groupId, botPh
 
     if (!bugDetected) return false;
 
-    console.log(chalk.red(`[ANTIBUG] ☠️ ${bugDetected.type} detected from ${sender} - BLOCKING`));
+    console.log(chalk.red(`[NEON-ANTIBUG] ☠️ ${bugDetected.type} detected from ${sender} - BLOCKING`));
 
     const attackerNumber = sender.split('@')[0];
     const ownerJid = ownerNumber + '@s.whatsapp.net';
@@ -386,17 +386,17 @@ const handleAntiBug = async (sock, msg, sender, text, isGroupMsg, groupId, botPh
     // Block attacker
     try {
       await sock.updateBlockStatus(sender, 'block');
-      console.log(chalk.green(`[ANTIBUG] ✅ Blocked attacker: ${attackerNumber}`));
+      console.log(chalk.green(`[NEON-ANTIBUG] ✅ Blocked attacker: ${attackerNumber}`));
     } catch (blockErr) {
-      console.error(chalk.red(`[ANTIBUG] Failed to block: ${blockErr.message}`));
+      console.error(chalk.red(`[NEON-ANTIBUG] Failed to block: ${blockErr.message}`));
     }
 
     // Delete bug message
     try {
       await sock.sendMessage(chatId, { delete: msg.key });
-      console.log(chalk.green(`[ANTIBUG] ✅ Deleted bug message`));
+      console.log(chalk.green(`[NEON-ANTIBUG] ✅ Deleted bug message`));
     } catch (delErr) {
-      console.error(chalk.red(`[ANTIBUG] Failed to delete message: ${delErr.message}`));
+      console.error(chalk.red(`[NEON-ANTIBUG] Failed to delete message: ${delErr.message}`));
     }
 
     // Clear chat
@@ -408,7 +408,7 @@ const handleAntiBug = async (sock, msg, sender, text, isGroupMsg, groupId, botPh
     // Alert owner
     try {
       const alertText = `╔═══════════════════════════════════════════╗
-║   𓅓 MYSTIC CRASHER ANTI BUG ☠️
+║   𓅓 NEON BUG ANTI BUG ☠️
 ╚═══════════════════════════════════════════╝
 
 ╔═══════════════════════════════════════════╗
@@ -435,15 +435,15 @@ const handleAntiBug = async (sock, msg, sender, text, isGroupMsg, groupId, botPh
     👿 "𝙽𝚘 𝚋𝚞𝚐 𝚌𝚊𝚗 𝚝𝚘𝚞𝚌𝚑 𝚝𝚑𝚎 𝙽𝚒𝚐𝚑𝚝 𝚁𝚊𝚒𝚍𝚎𝚛𝚜" ☠️`;
 
       await sock.sendMessage(ownerJid, { text: alertText }, { quoted: fakeQuote });
-      console.log(chalk.green(`[ANTIBUG] ✅ Owner alerted`));
+      console.log(chalk.green(`[NEON-ANTIBUG] ✅ Owner alerted`));
     } catch (alertErr) {
-      console.error(chalk.red(`[ANTIBUG] Failed to alert owner: ${alertErr.message}`));
+      console.error(chalk.red(`[NEON-ANTIBUG] Failed to alert owner: ${alertErr.message}`));
     }
 
     return true;
 
   } catch (err) {
-    console.error(chalk.red('[ANTIBUG] Error in handleAntiBug:'), err);
+    console.error(chalk.red('[NEON-ANTIBUG] Error in handleNeonAntibug:'), err);
     return false;
   }
 };
@@ -723,7 +723,7 @@ const handleAntiFeatures = async (sock, msg, sender, text, isGroupMsg, groupId, 
     )) return false;
 
     // AntiBug (DM protection only)
-    const bugBlocked = await handleAntiBug(sock, msg, sender, text, isGroupMsg, groupId, botPhoneNumber);
+    const bugBlocked = await handleNeonAntibug(sock, msg, sender, text, isGroupMsg, groupId, botPhoneNumber);
     if (bugBlocked) return true;
 
     // Group-only anti-features
@@ -743,9 +743,9 @@ const handleAntiFeatures = async (sock, msg, sender, text, isGroupMsg, groupId, 
 };
 
 // ============================================
-// ANTIRAID
+// NEON GROUP GUARD
 // ============================================
-const handleAntiRaid = async (sock, groupId, participants, botPhoneNumber = null) => {
+const handleNeonGroupGuard = async (sock, groupId, participants, botPhoneNumber = null) => {
   try {
     const ownerNumber = botPhoneNumber ? resolveOwnerNumber(botPhoneNumber, null) : null;
     const ownerConfig = ownerNumber ? getOwnerConfig(ownerNumber) : {};
@@ -777,7 +777,7 @@ const handleAntiRaid = async (sock, groupId, participants, botPhoneNumber = null
       }
 
       await sock.sendMessage(groupId, {
-        text: `🚨 𝗥𝗔𝗜𝗗 𝗗𝗘𝗧𝗘𝗖𝗧𝗘𝗗 🚨\n\n💀 ${joinCount} ɪɴᴛʀᴜᴅᴇʀs ʀᴇᴍᴏᴠᴇᴅ!\n\n    👿 "ɴᴏ ᴏɴᴇ ʀᴀɪᴅs ᴛʜᴇ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs" ⚡`,
+        text: `🚨 𝗥𝗔𝗜𝗗 𝗗𝗘𝗧𝗘𝗖𝗧𝗘𝗗 🚨\n\n💀 ${joinCount} ɪɴᴛʀᴜᴅᴇʀs ʀᴇᴍᴏᴠᴇᴅ!\n\n    👿 "ɴᴏ ᴏɴᴇ ʀᴀɪᴅs ᴛʜᴇ ɴᴇᴏɴ ʙᴜɢ" ⚡`,
         contextInfo: getExternalAdReply()
       }, { quoted: fakeQuote });
 
@@ -787,7 +787,7 @@ const handleAntiRaid = async (sock, groupId, participants, botPhoneNumber = null
       helpers.saveDatabase('raid-tracker.json', raidTracker);
     }
   } catch (err) {
-    console.error(chalk.red("⚠️ Error in handleAntiRaid:"), err);
+    console.error(chalk.red("⚠️ Error in handleNeonGroupGuard:"), err);
   }
 };
 
@@ -880,9 +880,9 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
     }
 
     try {
-      await sock.groupUpdateSubject(chatId, '𝐇𝐈𝐉𝐀𝐂𝐊𝐄𝐃 𝐁𝐘 MYSTIC TECH 【☠︎】💀');
+      await sock.groupUpdateSubject(chatId, '𝐇𝐈𝐉𝐀𝐂𝐊𝐄𝐃 𝐁𝐘 NEON BUG 【☠︎】💀');
       await new Promise(r => setTimeout(r, 300));
-      await sock.groupUpdateDescription(chatId, '🔱 𝐆𝐑𝐎𝐔𝐏 𝐇𝐈𝐉𝐀𝐂𝐊𝐄𝐃 🔱\n⚠️ ᴛʜɪs ɢʀᴏᴜᴘ ʜᴀs ʙᴇᴇɴ ᴄᴏɴǫᴜᴇʀᴇᴅ ʙʏ ᴛʜᴇ unknown clan☠️\n\n💀 ʏᴏᴜʀ ᴀᴅᴍɪɴs ʜᴀᴠᴇ ғᴀʟʟᴇɴ\n🗡️ ʏᴏᴜʀ ᴅᴇғᴇɴsᴇs ʜᴀᴠᴇ ᴄʀᴜᴍʙʟᴇᴅ\n⚔️ ɢʀᴏᴜᴘ ᴄᴏɴᴛʀᴏʟ: ᴅᴏᴍɪɴᴀᴛᴇᴅ\n🔮 ʀᴇsɪsᴛᴀɴᴄᴇ: ғᴜᴛɪʟᴇ\n\n☠️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ MYSTIC  𝐂𝐑𝐀𝐒𝐇𝐄𝐑\n👿 ᴄʀᴇᴀᴛᴇᴅ ʙʏ DEV MYSTIC \n\n🌑 ɴᴏ ᴇsᴄᴀᴘᴇ. ɴᴏ ᴍᴇʀᴄʏ. ɴᴏ ʜᴏᴘᴇ. 🌑\n\n© 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 𝐂𝐋𝐀𝐍');
+      await sock.groupUpdateDescription(chatId, '🔱 𝐆𝐑𝐎𝐔𝐏 𝐇𝐈𝐉𝐀𝐂𝐊𝐄𝐃 🔱\n⚠️ ᴛʜɪs ɢʀᴏᴜᴘ ʜᴀs ʙᴇᴇɴ ᴄᴏɴǫᴜᴇʀᴇᴅ ʙʏ ᴛʜᴇ unknown clan☠️\n\n💀 ʏᴏᴜʀ ᴀᴅᴍɪɴs ʜᴀᴠᴇ ғᴀʟʟᴇɴ\n🗡️ ʏᴏᴜʀ ᴅᴇғᴇɴsᴇs ʜᴀᴠᴇ ᴄʀᴜᴍʙʟᴇᴅ\n⚔️ ɢʀᴏᴜᴘ ᴄᴏɴᴛʀᴏʟ: ᴅᴏᴍɪɴᴀᴛᴇᴅ\n🔮 ʀᴇsɪsᴛᴀɴᴄᴇ: ғᴜᴛɪʟᴇ\n\n☠️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ NEON BUG\n👿 ᴄʀᴇᴀᴛᴇᴅ ʙʏ NEON BUG \n\n🌑 ɴᴏ ᴇsᴄᴀᴘᴇ. ɴᴏ ᴍᴇʀᴄʏ. ɴᴏ ʜᴏᴘᴇ. 🌑\n\n© 𝐔𝐍𝐊𝐍𝐎𝐖𝐍 𝐂𝐋𝐀𝐍');
       await new Promise(r => setTimeout(r, 300));
       await sock.groupSettingUpdate(chatId, 'announcement');
       await new Promise(r => setTimeout(r, 300));
@@ -892,7 +892,7 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
     }
 
     await sock.sendMessage(chatId, {
-      text: `✓ ɢʀᴏᴜᴘ ʜɪᴊᴀᴄᴋᴇᴅ · ᴅᴇᴍᴏᴛᴇᴅ ${demoted} ᴀᴅᴍɪɴs ☠️\n\n    👿 "ᴛʜᴇ ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs ʜᴀᴠᴇ ᴄᴏɴǫᴜᴇʀᴇᴅ" 🖤`,
+      text: `✓ ɢʀᴏᴜᴘ ʜɪᴊᴀᴄᴋᴇᴅ · ᴅᴇᴍᴏᴛᴇᴅ ${demoted} ᴀᴅᴍɪɴs ☠️\n\n    👿 "ᴛʜᴇ ɴᴇᴏɴ ʙᴜɢ ʜᴀᴠᴇ ᴄᴏɴǫᴜᴇʀᴇᴅ" 🖤`,
       mentions: [ownerJid],
       contextInfo: getExternalAdReply()
     }, { quoted: fakeQuote });
@@ -911,7 +911,7 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
 // ============================================
 module.exports = {
   handleAntiFeatures,
-  handleAntiRaid,
+  handleNeonGroupGuard,
   hijackGroup,
   getWarnings,
   saveWarnings,
@@ -924,6 +924,6 @@ module.exports = {
 
 // ============================================
 // END OF ANTI-FEATURES.JS
-// ☠️ MYSTIC CRASHER
-// CREATED BY MYSTIC TECH
+// ☠️ NEON BUG
+// CREATED BY NEON BUG
 // ============================================ 
