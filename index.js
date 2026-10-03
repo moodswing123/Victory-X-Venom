@@ -240,6 +240,23 @@ const validateTelegramId = (input) => {
 // ============================================
 // CHANNEL VERIFICATION
 // ============================================
+function getTelegramChatRef(channel) {
+  const configuredChatId = String(channel.chatId || '').trim();
+  if (configuredChatId) return configuredChatId;
+
+  const configuredUsername = String(channel.username || '').trim().replace(/^@+/, '');
+  if (configuredUsername) return `@${configuredUsername}`;
+
+  const linkMatch = String(channel.link || '').match(/(?:t\.me|telegram\.me)\/(?:s\/)?([A-Za-z0-9_]+)/i);
+  return linkMatch ? `@${linkMatch[1]}` : '';
+}
+
+function isTelegramMember(member) {
+  if (!member) return false;
+  if (['creator', 'administrator', 'member'].includes(member.status)) return true;
+  return member.status === 'restricted' && member.is_member === true;
+}
+
 async function checkUserInChannels(telegramBot, userId) {
   const missing = [];
   const isOwner = isOwnerId(userId);
@@ -248,11 +265,10 @@ async function checkUserInChannels(telegramBot, userId) {
   for (const channel of REQUIRED_CHANNELS) {
     if (channel.isWhatsApp) continue;
     try {
-      let chatId = channel.chatId;
-      if (!chatId && channel.username) chatId = '@' + channel.username;
+      const chatId = getTelegramChatRef(channel);
       if (chatId) {
         const member = await telegramBot.getChatMember(chatId, userId);
-        if (!member || member.status === 'left' || member.status === 'kicked') missing.push(channel);
+        if (!isTelegramMember(member)) missing.push(channel);
       } else {
         missing.push(channel);
       }
@@ -491,7 +507,7 @@ if (TELEGRAM_CONFIGURED) {
 
     // ── Channel verify ──
     if (data === 'verify_channels') {
-      const verification = await checkUserInChannels(telegramBot, chatId);
+      const verification = await checkUserInChannels(telegramBot, userId);
       if (verification.verified) {
         await telegramBot.sendMessage(chatId, `✅ Verified! Send /start to continue.`);
       } else {
