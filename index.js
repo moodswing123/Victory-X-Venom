@@ -1,8 +1,8 @@
  /*
  * ============================================
- * INDEX.JS - 𝑴𝒀𝑺𝑻𝑰𝑪 𝑩𝑼𝑮 𝑩𝑶𝑻 
- * Created by: 𝑴𝒀𝑺𝑻𝑰𝑪 𝑻𝑬𝑪𝑯
- * Telegram:@mystichimself
+ * INDEX.JS - 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝑩𝑶𝑻 
+ * Created by: 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯
+ * Telegram:@victory_is_h1m
  * ============================================
  */
 
@@ -75,16 +75,16 @@ const botMemberships = new Set();
 // ============================================
 console.clear();
 console.log(chalk.red(`
-██████╗  █████╗ ██╗██████╗      ██████╗██████╗  █████╗ ███████╗██╗  ██╗███████╗██████╗ 
-██╔══██╗██╔══██╗██║██╔══██╗    ██╔════╝██╔══██╗██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗
-██████╔╝███████║██║██║  ██║    ██║     ██████╔╝███████║███████╗███████║█████╗  ██████╔╝
-██╔══██╗██╔══██║██║██║  ██║    ██║     ██╔══██╗██╔══██║╚════██║██╔══██║██╔══╝  ██╔══██╗
-██║  ██║██║  ██║██║██████╔╝    ╚██████╗██║  ██║██║  ██║███████║██║  ██║███████╗██║  ██║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝      ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚══════╝╚═╝  ╚═╝
+███╗   ██╗███████╗ ██████╗ ███╗   ██╗    ██████╗ ██╗   ██╗ ██████╗ 
+████╗  ██║██╔════╝██╔═══██╗████╗  ██║    ██╔══██╗██║   ██║██╔════╝ 
+██╔██╗ ██║█████╗  ██║   ██║██╔██╗ ██║    ██████╔╝██║   ██║██║  ███╗
+██║╚██╗██║██╔══╝  ██║   ██║██║╚██╗██║    ██╔══██╗██║   ██║██║   ██║
+██║ ╚████║███████╗╚██████╔╝██║ ╚████║    ██████╔╝╚██████╔╝╚██████╔╝
+╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝  ╚═════╝  ╚═════╝
 `));
 console.log(chalk.red('𓅓'.repeat(20)));
-console.log(chalk.white('       𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 -  '));
-console.log(chalk.red(`       Created by: DEV VENOM |  Telegram: ${OWNER_USERNAME}`));
+console.log(chalk.white('       𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 -  '));
+console.log(chalk.red(`       Created by: VICTORY TECH |  Telegram: ${OWNER_USERNAME}`));
 console.log(chalk.red('𓅓'.repeat(20)));
 console.log(chalk.green(`[INSTANCE CHECK] PID: ${process.pid}`));
 console.log(chalk.green(`[INSTANCE CHECK] Time: ${new Date().toISOString()}`));
@@ -255,7 +255,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
 
   // ── Both owner and premium see the same basic start info ──
   const menuText =
-    `<blockquote> 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.2.0\n\n` +
+    `<blockquote> 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.2.0\n\n` +
     `○ 𝗔𝘂𝘁𝗵𝗼𝗿 : ${OWNER_USERNAME}\n` +
     `○ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 : 1.0.0\n` +
     `○ 𝗣𝗿𝗲𝗳𝗶𝘅 : (/) Slash\n` +
@@ -285,7 +285,7 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
   const premiumKeyboard = {
     inline_keyboard: [
       [
-        { text: '🩸 Meta Access', callback_data: 'menu_raid_access' }
+        { text: '☠️a Meta Access', callback_data: 'menu_raid_access' }
       ],
       [
         ...developerButtons
@@ -376,7 +376,7 @@ if (TELEGRAM_CONFIGURED) {
         `🔒 Missing:\n${missingList}\n\n` +
         `Join all, then tap ✅ VERIFY below.\n\n` +
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-        `☠︎︎𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹☠︎︎  `;
+        `☠︎︎𝑵𝑬𝑶𝑵 𝑩𝑼𝑮☠︎︎  `;
 
       const keyboard = {
         inline_keyboard: [
@@ -426,17 +426,17 @@ if (TELEGRAM_CONFIGURED) {
         `○ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 : ${firstName}\n` +
         `○ 𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : 👑 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗘𝗥\n\n` +
         `━━━━━^━━━ ━━━━━^━━━━ ━━━━━━━━^━━ ━━━━\n` +
-        `   ⚡ "THE INFINITE TSUKUYOMI "</blockquote>`;
+        `   ⚡ "『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉 SHALL REIGN SUPREME "</blockquote>`;
 
       const userMenuText =
-        `<blockquote> 𝑽𝑬𝑵𝑶𝑴 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.1\n\n` +
+        `<blockquote> 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮w 𝘃𝟭.1\n\n` +
         `○ 𝗔𝘂𝘁𝗵𝗼𝗿 : ${OWNER_USERNAME}\n` +
         `○ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 : 1.0.0\n` +
         `○ 𝗣𝗿𝗲𝗳𝗶𝘅 : (/) \n` +
         `○ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 : ${firstName}\n` +
         `○ 𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ✅ 𝗔𝗖𝗧𝗜𝗩𝗘\n\n` +
         `━━━ ━━━━━━ ━━━━^━━━━━━━━ ━━━━━^━━━ ━━━\n` +
-        `   👹 "THE INFINITE TSUKUYOMI"</blockquote>`;
+        `   👹 "『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉 SHALL REIGN SUPREME"</blockquote>`;
 
       const ownerKeyboard = {
         inline_keyboard: [
@@ -491,11 +491,11 @@ if (TELEGRAM_CONFIGURED) {
         `<blockquote> 𝗢𝗪𝗡𝗘𝗥 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 ▼・ᴥ・▼\n\n` +
         `🌒 /pair &lt;number&gt; — 𝗗𝗲𝗽𝗹𝗼𝘆 𝗕𝗼𝘁\n` +
         `🔔 /disconnect &lt;number&gt; — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗕𝗼𝘁\n\n` +
-        `⚡ /stats — 𝗥𝗮𝗶𝗱𝗲𝗿 𝗦𝘁𝗮𝘁𝘀\n` +
+        `⚡ /stats — 𝑵𝑬𝑶𝑵 𝗦𝘁𝗮𝘁𝘀\n` +
         `⚡ /addprem &lt;id&gt; — 𝗔𝗱𝗱 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
         `⚡ /delprem &lt;id&gt; — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
-        `⚡ /ban &lt;id&gt; — 𝗕𝗮𝗻𝗶𝘀𝗵 𝗥𝗮𝗶𝗱𝗲𝗿\n` +
-        `⚡ /unban &lt;id&gt; — 𝗥𝗲𝗱𝗲𝗲𝗺 𝗥𝗮𝗶𝗱𝗲𝗿\n\n` +
+        `⚡ /ban &lt;id&gt; — 𝗕𝗮𝗻𝗶𝘀𝗵 User\n` +
+        `⚡ /unban &lt;id&gt; — 𝗥𝗲𝗱𝗲𝗲𝗺 User\n\n` +
         `━━━━━━━━━━━━━━━━━━▼・ᴥ・▼━━━━━━━━━━━━━━━━━\n` +
         `   𓅓 "𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝗣𝗮𝗻𝗲𝗹"</blockquote>`;
 
@@ -554,10 +554,10 @@ if (TELEGRAM_CONFIGURED) {
 
       const thanksText =
         `<blockquote> 𝗧𝗛𝗔𝗡𝗞𝗦 𝗧𝗢 裂\n\n` +
-        `(●’◡’●)ﾉ █╚» ◥꧁༒ 🆅︎🅴︎🅽︎🅾︎🅼︎༒꧂◤ «╝ █:\n\n` +
-        `裂MR. DARKVENOM( Creator )\n` +
+        `𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯:\n\n` +
+        `裂𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯( Creator )\n` +
         `━━━━━━━━ ━━━━━━━━━ ━━━━━━━━━━━━ ━━━━━━\n` +
-        `    "𓅓THE DARKVENOM" 🖤</blockquote>`;
+        `    "𓅓『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉" 🖤</blockquote>`;
 
       const keyboard = {
         inline_keyboard: [
@@ -677,7 +677,7 @@ if (TELEGRAM_CONFIGURED) {
 
     const statsText =
       `╔═══════ ▼・ᴥ・▼════════════         ════       '══════╗\n` +
-      `║ ▼・ᴥ・▼ 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 STATS ║\n` +
+      `║  𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 STATS ║\n` +
       `╚════════════════════
       '════════════╝\n\n` +
       `👥 Total Raiders: ${stats.totalUsers}\n` +
@@ -686,7 +686,7 @@ if (TELEGRAM_CONFIGURED) {
       `🚫 Banished: ${stats.bannedUsers}\n` +
       `⏰ Uptime: ${uptime}\n\n` +
       `━━━━━━ ━━━━━━━━ ━━━━━━━━━━━━━━━━━━━ ━━\n` +
-      `    "𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝗗𝗼𝗺𝗶𝗻𝗮𝘁𝗶𝗻𝗴" 🖤`;
+      `    "𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝗗𝗼𝗺𝗶𝗻𝗮𝘁𝗶𝗻𝗴" ☠️`;
 
     telegramBot.sendMessage(chatId, statsText);
   });
@@ -1050,9 +1050,9 @@ async function restoreExistingSessions() {
 // LAUNCH
 // ============================================
 restoreExistingSessions().then(() => {
-  console.log(chalk.red(' 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 ONLINE -  𝑽𝑬𝑵𝑶𝑴 DOMINATE '));
-  console.log(chalk.red('VENOM'.repeat(20)));
-  console.log(chalk.white('✅ FULLY OPERATIONAL - Created by 𝑽𝑬𝑵𝑶𝑴 '));
+  console.log(chalk.red(' 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 ONLINE -  𝑵𝑬𝑶𝑵 WILL RISE '));
+  console.log(chalk.red('NEON'.repeat(20)));
+  console.log(chalk.white('✅ FULLY OPERATIONAL - Created by 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯 '));
   console.log(chalk.red('ʕ•ᴥ•ʔ'.repeat(20)));
 });
 
@@ -1063,7 +1063,7 @@ module.exports = { activeBots, telegramBot, getUptime };
 
 // ============================================
 // END OF INDEX.JS
-// 𝑴𝒀𝑺𝑻𝑰𝑪 CRASHER 
-// CREATED BY 𝑴𝒀𝑺𝑻𝑰𝑪  🖤
-// Telegram: @mystichimself
+// 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 
+// CREATED BY 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯  ☠️
+// Telegram: @victory_is_h1m
 // ============================================
