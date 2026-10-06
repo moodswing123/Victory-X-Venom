@@ -205,34 +205,34 @@ async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
 // ── SEND FULL COMMAND LIST (compatible with older WhatsApp clients) ──
 async function sendCommandMenu(sock, chatId, fakeQuote, prefix) {
   const rows = [
-    ['META BUGS', [
-      ['NEON ANDROID', 'Android module', 'btn_neon-android'],
-      ['NEON DEVINE-FREEZE', 'Android freeze module', 'btn_neon-devine-freeze'],
-      ['NEON DELAY', 'Android delay module', 'btn_neon-delay'],
-      ['NEON IOS', 'iOS module', 'btn_neon-ios'],
-      ['NEON INVASION', 'iOS invasion module', 'btn_neon-invasion'],
-      ['NEON FREEZE', 'iOS freeze module', 'btn_neon-freeze'],
-      ['NEON GC', 'Group command', 'btn_neon-gc']
+    ['𓅓 META BUGS', [
+      ['𓅓 NEON ANDROID', 'Android module · select to continue', 'btn_neon-android'],
+      ['𓅓 NEON DEVINE-FREEZE', 'Android freeze module · select to continue', 'btn_neon-devine-freeze'],
+      ['𓅓 NEON DELAY', 'Android delay module · select to continue', 'btn_neon-delay'],
+      ['🍎 NEON IOS', 'iOS module · select to continue', 'btn_neon-ios'],
+      ['🍎 NEON INVASION', 'iOS invasion module · select to continue', 'btn_neon-invasion'],
+      ['🍎 NEON FREEZE', 'iOS freeze module · select to continue', 'btn_neon-freeze'],
+      ['👥 NEON GC', 'Group command · select to continue', 'btn_neon-gc']
     ]],
-    ['SYSTEM', [
-      ['NEON ANTIBUG', 'Toggle antibug', 'btn_neon-antibug'],
-      ['ANTISPAM', 'Toggle antispam', 'btn_antispam'],
-      ['ANTIBOT', 'Toggle antibot', 'btn_antibot'],
-      ['ADDSUDO', 'Add a sudo user', 'btn_addsudo'],
-      ['DELSUDO', 'Remove a sudo user', 'btn_delsudo'],
-      ['LISTSUDO', 'List sudo users', 'btn_listsudo'],
-      ['HIJACK', 'Group command', 'btn_hijack'],
-      ['KICKALL', 'Group command', 'btn_kickall'],
-      ['NEON LIST', 'List group members', 'btn_neon-list'],
-      ['PING', 'Check response time', 'btn_ping'],
-      ['DEVICE', 'Show device usage', 'btn_device']
+    ['⚙️ SYSTEM', [
+      ['🛡️ NEON ANTIBUG', 'Toggle antibug protection', 'btn_neon-antibug'],
+      ['🚫 ANTISPAM', 'Toggle antispam protection', 'btn_antispam'],
+      ['🤖 ANTIBOT', 'Toggle antibot protection', 'btn_antibot'],
+      ['👑 ADDSUDO', 'Add a sudo user', 'btn_addsudo'],
+      ['🚫 DELSUDO', 'Remove a sudo user', 'btn_delsudo'],
+      ['📋 LISTSUDO', 'List sudo users', 'btn_listsudo'],
+      ['👥 HIJACK', 'Group command', 'btn_hijack'],
+      ['👥 KICKALL', 'Group command', 'btn_kickall'],
+      ['📋 NEON LIST', 'List group members', 'btn_neon-list'],
+      ['🏓 PING', 'Check response time', 'btn_ping'],
+      ['📱 DEVICE', 'Show device usage', 'btn_device']
     ]]
   ];
   const listMessage = generateWAMessageFromContent(chatId, {
     listMessage: proto.Message.ListMessage.create({
-      title: '「☠︎」NEON BUG MENU',
-      description: `Prefix: ${prefix || '.'}\nChoose a command below:`,
-      buttonText: 'Select command',
+      title: '☠️ NEON BUG v1.0',
+      description: `「☠︎」 NEON BUG MENU\nPrefix: ${prefix || '.'}\nChoose a command below:`,
+      buttonText: '☠️ Select Command',
       listType: 1,
       sections: rows.map(([title, entries]) => proto.Message.ListMessage.Section.create({
         title,
@@ -242,7 +242,7 @@ async function sendCommandMenu(sock, chatId, fakeQuote, prefix) {
           rowId
         }))
       })),
-      footerText: 'NEON BUG — all commands'
+      footerText: '「☠︎」 NEON BUG • Select a command'
     })
   }, { quoted: fakeQuote });
   await withTimeout(
