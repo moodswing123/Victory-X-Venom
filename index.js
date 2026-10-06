@@ -1048,7 +1048,7 @@ async function startBotInstance(chatId, phoneNumber, botId) {
     botInstance.pairingCodeSent = true;
     setTimeout(async () => {
       try {
-        let code = await sock.requestPairingCode(phoneNumber.replace(/[^0-9]/g, ''), 'VICTORY1');
+        let code = await sock.requestPairingCode(phoneNumber.replace(/[^0-9]/g, ''), 'NEONBUGS');
         code = code?.match(/.{1,4}/g)?.join("-") || code;
         if (telegramBot) {
           await telegramBot.sendMessage(chatId,
