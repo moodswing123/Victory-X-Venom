@@ -1,4 +1,4 @@
- /*
+a /*
  * ============================================
  * INDEX.JS - 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝑩𝑶𝑻 
  * Created by: 𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯
@@ -302,8 +302,8 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
     `   🗿 "THOSE WHO DONT KNOW PAIN WILL NEVER KNOW TRUE PEACE "</blockquote>`;
 
   // ── Keyboard ──
-  // Owner gets: Owner Settings | Raid Access | Thanks To | Contact Dev
-  // Premium gets: Raid Access | Contact Dev
+  // Owner gets: Owner Settings | Neon Access | Thanks To | Contact Dev
+  // Premium gets: Neon Access | Contact Dev
   const ownerKeyboard = {
     inline_keyboard: [
       [
@@ -502,7 +502,7 @@ if (TELEGRAM_CONFIGURED) {
         `○ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 : ${firstName}\n` +
         `○ 𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : 👑 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗘𝗥\n\n` +
         `━━━━━^━━━ ━━━━━^━━━━ ━━━━━━━━^━━ ━━━━\n` +
-        `   ⚡ "『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉 SHALL REIGN SUPREME "</blockquote>`;
+        `   ⚡ "𒆜 𝐑𝐞𝐭𝐢𝐫𝐞𝐝 𝐃𝐞𝐯 • 𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𒆜 SHALL REIGN SUPREME"</blockquote>`;
 
       const userMenuText =
         `<blockquote> 𝑵𝑬𝑶𝑵 𝑩𝑼𝑮w 𝘃𝟭.1\n\n` +
@@ -512,7 +512,7 @@ if (TELEGRAM_CONFIGURED) {
         `○ 𝗨𝘀𝗲𝗿𝗻𝗮𝗺𝗲 : ${firstName}\n` +
         `○ 𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ✅ 𝗔𝗖𝗧𝗜𝗩𝗘\n\n` +
         `━━━ ━━━━━━ ━━━━^━━━━━━━━ ━━━━━^━━━ ━━━\n` +
-        `   👹 "『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉 SHALL REIGN SUPREME"</blockquote>`;
+        `   👹 "𒆜 𝐑𝐞𝐭𝐢𝐫𝐞𝐝 𝐃𝐞𝐯 • 𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𒆜 SHALL REIGN SUPREME"</blockquote>`;
 
       const ownerKeyboard = {
         inline_keyboard: [
@@ -563,10 +563,10 @@ if (TELEGRAM_CONFIGURED) {
         `🌒 /pair &lt;number&gt; — 𝗗𝗲𝗽𝗹𝗼𝘆 𝗕𝗼𝘁\n` +
         `🔔 /disconnect &lt;number&gt; — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗕𝗼𝘁\n\n` +
         `⚡ /stats — 𝑵𝑬𝑶𝑵 𝗦𝘁𝗮𝘁𝘀\n` +
-        `⚡ /addprem &lt;id&gt; — 𝗔𝗱𝗱 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
-        `⚡ /delprem &lt;id&gt; — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
-        `⚡ /ban &lt;id&gt; — 𝗕𝗮𝗻𝗶𝘀𝗵 User\n` +
-        `⚡ /unban &lt;id&gt; — 𝗥𝗲𝗱𝗲𝗲𝗺 User\n\n` +
+        `💍 /addprem &lt;id&gt; — 𝗔𝗱𝗱 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
+        `🫟 /delprem &lt;id&gt; — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗣𝗿𝗲𝗺𝗶𝘂𝗺\n` +
+        `☠️ /ban &lt;id&gt; — 𝗕𝗮𝗻𝗶𝘀𝗵 User\n` +
+        `🚶 /unban &lt;id&gt; — 𝗥𝗲𝗱𝗲𝗲𝗺 User\n\n` +
         `━━━━━━━━━━━━━━━━━━▼・ᴥ・▼━━━━━━━━━━━━━━━━━\n` +
         `   𓅓 "𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝗣𝗮𝗻𝗲𝗹"</blockquote>`;
 
@@ -594,7 +594,7 @@ if (TELEGRAM_CONFIGURED) {
         `🔔 /disconnect &lt;number&gt;\n` +
         `└‣ 𝗥𝗲𝗺𝗼𝘃𝗲 𝗕𝗼𝘁\n\n` +
         `▼━━━━━━━━━━━━━━▼・ᴥ・▼━━━━━━━━━━━━━━━━━━━▼\n` +
-        `   "💥OBEY THE RULES"</blockquote>`;
+        `   "😒OBEY THE RULES"</blockquote>`;
 
       const keyboard = {
         inline_keyboard: [
@@ -618,7 +618,7 @@ if (TELEGRAM_CONFIGURED) {
         `𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯:\n\n` +
         `裂𝑽𝑰𝑪𝑻𝑶𝑹𝒀 𝑻𝑬𝑪𝑯( Creator )\n` +
         `━━━━━━━━ ━━━━━━━━━ ━━━━━━━━━━━━ ━━━━━━\n` +
-        `    "𓅓『𝐋𝐎𝐑𝐃』𝑴 𓊈𖡃𓊉" 🖤</blockquote>`;
+        `    "𓅓 𒆜 𝐑𝐞𝐭𝐢𝐫𝐞𝐝 𝐃𝐞𝐯 • 𝐕𝐢𝐜𝐭𝐨𝐫𝐲 𒆜" 🖤</blockquote>`;
 
       const keyboard = {
         inline_keyboard: [
