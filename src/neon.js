@@ -204,6 +204,9 @@ async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
 
 // ── SEND FULL COMMAND LIST (compatible with older WhatsApp clients) ──
 async function sendCommandMenu(sock, chatId, fakeQuote, prefix) {
+  // Always send the complete text menu first. This keeps .menu usable when a
+  // WhatsApp client hides or rejects interactive/list-message payloads.
+  await sendPlainMenu(sock, chatId, fakeQuote, prefix);
   const rows = [
     ['𓅓 META BUGS', [
       ['𓅓 NEON ANDROID', 'Android module · select to continue', 'btn_neon-android'],
@@ -245,11 +248,15 @@ async function sendCommandMenu(sock, chatId, fakeQuote, prefix) {
       footerText: '「☠︎」 NEON BUG • Select a command'
     })
   }, { quoted: fakeQuote });
-  await withTimeout(
-    sock.relayMessage(chatId, listMessage.message, { messageId: listMessage.key.id }),
-    20000,
-    'full command menu relay'
-  );
+  try {
+    await withTimeout(
+      sock.relayMessage(chatId, listMessage.message, { messageId: listMessage.key.id }),
+      20000,
+      'full command menu relay'
+    );
+  } catch (err) {
+    console.warn(chalk.yellow('[menu] Interactive list unavailable; text menu was sent:'), err.message);
+  }
 }
 
 // ── SEND MAIN MENU (called by .menu cmd and button response) ──
