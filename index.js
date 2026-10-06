@@ -340,6 +340,45 @@ async function sendStartMenu(telegramBot, chatId, isOwnerUser, firstName, userBo
   }
 }
 
+// Safely update a menu message. Telegram can reject editMessageMedia when the
+// original media is unavailable, stale, or not editable; keep navigation usable.
+async function updateMenuMessage(telegramBot, chatId, messageId, { media, caption, keyboard }) {
+  const options = { chat_id: chatId, message_id: messageId, reply_markup: keyboard };
+  try {
+    await telegramBot.editMessageMedia(
+      { type: 'photo', media, caption, parse_mode: 'HTML' },
+      options
+    );
+    return;
+  } catch (mediaError) {
+    console.error(chalk.yellow('[telegram menu] editMessageMedia failed:'), mediaError.message);
+  }
+  try {
+    await telegramBot.editMessageCaption(caption, {
+      ...options,
+      parse_mode: 'HTML'
+    });
+    return;
+  } catch (captionError) {
+    console.error(chalk.yellow('[telegram menu] editMessageCaption failed:'), captionError.message);
+  }
+  try {
+    if (media) {
+      await telegramBot.sendPhoto(chatId, media, {
+        caption,
+        parse_mode: 'HTML',
+        reply_markup: keyboard
+      });
+    } else {
+      throw new Error('No menu media configured');
+    }
+  } catch (photoError) {
+    console.error(chalk.yellow('[telegram menu] sendPhoto fallback failed:'), photoError.message);
+    await telegramBot.sendMessage(chatId, caption.replace(/<[^>]+>/g, ''), {
+      reply_markup: keyboard
+    });
+  }
+}
 // ============================================
 // TELEGRAM BOT INITIALIZATION
 // ============================================
@@ -496,12 +535,7 @@ if (TELEGRAM_CONFIGURED) {
       const menuText = isOwnerUser ? ownerMenuText : userMenuText;
       const keyboard = isOwnerUser ? ownerKeyboard : premiumKeyboard;
 
-      await telegramBot.editMessageMedia({
-        type: 'photo',
-        media: IMG_MAIN,
-        caption: menuText,
-        parse_mode: 'HTML'
-      }, { chat_id: chatId, message_id: messageId, reply_markup: keyboard });
+      await updateMenuMessage(telegramBot, chatId, messageId, { media: IMG_MAIN, caption: menuText, keyboard });
       return;
     }
 
@@ -542,12 +576,7 @@ if (TELEGRAM_CONFIGURED) {
         ]
       };
 
-      await telegramBot.editMessageMedia({
-        type: 'photo',
-        media: IMG_OWNER,
-        caption: ownerSettingsText,
-        parse_mode: 'HTML'
-      }, { chat_id: chatId, message_id: messageId, reply_markup: keyboard });
+      await updateMenuMessage(telegramBot, chatId, messageId, { media: IMG_OWNER, caption: ownerSettingsText, keyboard });
       return;
     }
 
@@ -573,12 +602,7 @@ if (TELEGRAM_CONFIGURED) {
         ]
       };
 
-      await telegramBot.editMessageMedia({
-        type: 'photo',
-        media: IMG_RAID,
-        caption: crashText,
-        parse_mode: 'HTML'
-      }, { chat_id: chatId, message_id: messageId, reply_markup: keyboard });
+      await updateMenuMessage(telegramBot, chatId, messageId, { media: IMG_RAID, caption: crashText, keyboard });
       return;
     }
 
@@ -602,12 +626,7 @@ if (TELEGRAM_CONFIGURED) {
         ]
       };
 
-      await telegramBot.editMessageMedia({
-        type: 'photo',
-        media: CATBOX_THUMBNAIL,
-        caption: thanksText,
-        parse_mode: 'HTML'
-      }, { chat_id: chatId, message_id: messageId, reply_markup: keyboard });
+      await updateMenuMessage(telegramBot, chatId, messageId, { media: CATBOX_THUMBNAIL, caption: thanksText, keyboard });
       return;
     }
   });
