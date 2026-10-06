@@ -265,22 +265,37 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
             ...(headerImage && { imageMessage: headerImage })
           }),
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-            buttons: [
-              {
-                name: 'cta_reply',
-                buttonParamsJson: JSON.stringify({
-                  display_text: '「☠︎」Meta Bugs',
-                  id: 'open_neon_modules'
-                })
-              },
-              {
-                name: 'cta_reply',
-                buttonParamsJson: JSON.stringify({
-                  display_text: '「☠︎」System',
-                  id: 'open_system'
-                })
+            messageParamsJson: JSON.stringify({
+              limited_time_offer: {
+                text: 'NEON BUG MENU',
+                url: DEVELOPER_LINK || '',
+                copy_code: 'NEON BUG',
+                expiration_time: Date.now() + 86400000
               }
-            ]
+            }),
+            buttons: [{
+              name: 'single_select',
+              buttonParamsJson: JSON.stringify({
+                title: '「☠︎」Select Category',
+                sections: [{
+                  title: 'NEON BUG MENU',
+                  rows: [
+                    {
+                      header: '「☠︎」META BUGS',
+                      title: 'Meta Bugs',
+                      description: 'Android and iOS modules',
+                      id: 'open_neon_modules'
+                    },
+                    {
+                      header: '「☠︎」SYSTEM',
+                      title: 'System',
+                      description: 'Protection, sudo, group and utility tools',
+                      id: 'open_system'
+                    }
+                  ]
+                }]
+              })
+            }]
           })
         })
       }
