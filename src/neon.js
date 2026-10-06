@@ -51,6 +51,10 @@ console.log('');
 global.botStartTime = Date.now();
 
 const DEVELOPER_LINK = DEVELOPER_LINKS[0] || '';
+const withTimeout = (promise, milliseconds, label) => Promise.race([
+  promise,
+  new Promise((_, reject) => setTimeout(() => reject(new Error(`${label} timed out after ${milliseconds}ms`)), milliseconds))
+]);
 
 // ============================================
 // HOST DETECTION
@@ -234,9 +238,13 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
   if (fs.existsSync(menuImagePath)) {
     try {
       const imageBuffer = fs.readFileSync(menuImagePath);
-      const imageMessage = await generateWAMessageContent(
-        { image: imageBuffer },
-        { upload: sock.waUploadToServer }
+      const imageMessage = await withTimeout(
+        generateWAMessageContent(
+          { image: imageBuffer },
+          { upload: sock.waUploadToServer }
+        ),
+        15000,
+        'menu image upload'
       );
       headerImage = imageMessage.imageMessage;
     } catch (err) {
@@ -302,9 +310,13 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
     }
   }, { quoted: fakeQuote });
 
-  await sock.relayMessage(chatId, categoryMsg.message, {
-    messageId: categoryMsg.key.id
-  });
+  await withTimeout(
+    sock.relayMessage(chatId, categoryMsg.message, {
+      messageId: categoryMsg.key.id
+    }),
+    20000,
+    'interactive menu relay'
+  );
 }
 
 // ── SEND RAID BUGS LIST ──
