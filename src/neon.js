@@ -1077,7 +1077,9 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
           // ── MENU ──
           case 'menu': {
             try {
-              await sendMainMenu(sock, chatId, fakeQuote, prefix);
+              // .menu opens the interactive category selector. The static media
+              // menu remains available as a safe fallback for older clients.
+              await sendCategoryMenu(sock, chatId, fakeQuote);
             } catch (err) {
               await sendPlainMenu(sock, chatId, fakeQuote, prefix, err?.stack || err?.message || String(err));
             }
