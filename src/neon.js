@@ -229,6 +229,20 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
 
 // ── SEND CATEGORY LIST (Raid Bugs / System) ──
 async function sendCategoryMenu(sock, chatId, fakeQuote) {
+  const menuImagePath = path.join(__dirname, '..', 'assets', 'menu.jpg');
+  let headerImage = null;
+  if (fs.existsSync(menuImagePath)) {
+    try {
+      const imageBuffer = fs.readFileSync(menuImagePath);
+      const imageMessage = await generateWAMessageContent(
+        { image: imageBuffer },
+        { upload: sock.waUploadToServer }
+      );
+      headerImage = imageMessage.imageMessage;
+    } catch (err) {
+      console.warn(chalk.yellow('[sendCategoryMenu] Menu image unavailable:'), err.message);
+    }
+  }
   const categoryMsg = generateWAMessageFromContent(chatId, {
     viewOnceMessage: {
       message: {
@@ -247,7 +261,8 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
           }),
           header: proto.Message.InteractiveMessage.Header.create({
             title: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮',
-            hasMediaAttachment: false
+            hasMediaAttachment: Boolean(headerImage),
+            ...(headerImage && { imageMessage: headerImage })
           }),
           nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
             buttons: [
