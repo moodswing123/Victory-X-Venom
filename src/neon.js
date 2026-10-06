@@ -176,16 +176,80 @@ async function sendPlainMenu(sock, chatId, fakeQuote, prefix, reason = '') {
     : 'Developer links are not configured.';
   const text =
     `「☠︎」NEON BUG MENU\n\n` +
-    `Prefix: ${prefix || '.'}\n` +
+    `Prefix: ${prefix || '.'}\n\n` +
+    `META BUGS\n` +
+    `• ${prefix || '.'}neon-android\n` +
+    `• ${prefix || '.'}neon-devine-freeze\n` +
+    `• ${prefix || '.'}neon-delay\n` +
+    `• ${prefix || '.'}neon-ios\n` +
+    `• ${prefix || '.'}neon-invasion\n` +
+    `• ${prefix || '.'}neon-freeze\n` +
+    `• ${prefix || '.'}neon-gc\n\n` +
+    `SYSTEM\n` +
+    `• ${prefix || '.'}neon-antibug\n` +
+    `• ${prefix || '.'}antispam\n` +
+    `• ${prefix || '.'}antibot\n` +
+    `• ${prefix || '.'}addsudo\n` +
+    `• ${prefix || '.'}delsudo\n` +
+    `• ${prefix || '.'}listsudo\n` +
+    `• ${prefix || '.'}hijack\n` +
+    `• ${prefix || '.'}kickall\n` +
+    `• ${prefix || '.'}neon-list\n` +
     `• ${prefix || '.'}ping\n` +
-    `• ${prefix || '.'}pair <phone_number>\n` +
-    `• ${prefix || '.'}disconnect <phone_number>\n` +
-    `• ${prefix || '.'}stats\n` +
-    `• ${prefix || '.'}addsudo <number>\n` +
-    `• ${prefix || '.'}delsudo <number>\n\n` +
+    `• ${prefix || '.'}device\n\n` +
     `${developerLines}`;
   await sock.sendMessage(chatId, { text }, { quoted: fakeQuote });
   if (reason) console.error(`[menu] Rich menu unavailable: ${reason}`);
+}
+
+// ── SEND FULL COMMAND LIST (compatible with older WhatsApp clients) ──
+async function sendCommandMenu(sock, chatId, fakeQuote, prefix) {
+  const rows = [
+    ['META BUGS', [
+      ['NEON ANDROID', 'Android module', 'btn_neon-android'],
+      ['NEON DEVINE-FREEZE', 'Android freeze module', 'btn_neon-devine-freeze'],
+      ['NEON DELAY', 'Android delay module', 'btn_neon-delay'],
+      ['NEON IOS', 'iOS module', 'btn_neon-ios'],
+      ['NEON INVASION', 'iOS invasion module', 'btn_neon-invasion'],
+      ['NEON FREEZE', 'iOS freeze module', 'btn_neon-freeze'],
+      ['NEON GC', 'Group command', 'btn_neon-gc']
+    ]],
+    ['SYSTEM', [
+      ['NEON ANTIBUG', 'Toggle antibug', 'btn_neon-antibug'],
+      ['ANTISPAM', 'Toggle antispam', 'btn_antispam'],
+      ['ANTIBOT', 'Toggle antibot', 'btn_antibot'],
+      ['ADDSUDO', 'Add a sudo user', 'btn_addsudo'],
+      ['DELSUDO', 'Remove a sudo user', 'btn_delsudo'],
+      ['LISTSUDO', 'List sudo users', 'btn_listsudo'],
+      ['HIJACK', 'Group command', 'btn_hijack'],
+      ['KICKALL', 'Group command', 'btn_kickall'],
+      ['NEON LIST', 'List group members', 'btn_neon-list'],
+      ['PING', 'Check response time', 'btn_ping'],
+      ['DEVICE', 'Show device usage', 'btn_device']
+    ]]
+  ];
+  const listMessage = generateWAMessageFromContent(chatId, {
+    listMessage: proto.Message.ListMessage.create({
+      title: '「☠︎」NEON BUG MENU',
+      description: `Prefix: ${prefix || '.'}\nChoose a command below:`,
+      buttonText: 'Select command',
+      listType: 1,
+      sections: rows.map(([title, entries]) => proto.Message.ListMessage.Section.create({
+        title,
+        rows: entries.map(([rowTitle, description, rowId]) => proto.Message.ListMessage.Row.create({
+          title: rowTitle,
+          description,
+          rowId
+        }))
+      })),
+      footerText: 'NEON BUG — all commands'
+    })
+  }, { quoted: fakeQuote });
+  await withTimeout(
+    sock.relayMessage(chatId, listMessage.message, { messageId: listMessage.key.id }),
+    20000,
+    'full command menu relay'
+  );
 }
 
 // ── SEND MAIN MENU (called by .menu cmd and button response) ──
@@ -1100,9 +1164,7 @@ module.exports = async (sock, phoneNumber = null, ownerChatId = null) => {
           // ── MENU ──
           case 'menu': {
             try {
-              // .menu opens the interactive category selector. The static media
-              // menu remains available as a safe fallback for older clients.
-              await sendCategoryMenu(sock, chatId, fakeQuote);
+              await sendCommandMenu(sock, chatId, fakeQuote, prefix);
             } catch (err) {
               await sendPlainMenu(sock, chatId, fakeQuote, prefix, err?.stack || err?.message || String(err));
             }
