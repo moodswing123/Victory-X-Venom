@@ -432,7 +432,7 @@ const handleNeonAntibug = async (sock, msg, sender, text, isGroupMsg, groupId, b
 ║                                           
 ╚═══════════════════════════════════════════╝
 
-    👿 "𝙽𝚘 𝚋𝚞𝚐 𝚌𝚊𝚗 𝚝𝚘𝚞𝚌𝚑 𝚝𝚑𝚎 𝙽𝚒𝚐𝚑𝚝 𝚁𝚊𝚒𝚍𝚎𝚛𝚜" ☠️`;
+    👿 "𝙽𝚘 𝚋𝚞𝚐 𝚌𝚊𝚗 𝚝𝚘𝚞𝚌𝚑 𝚝𝚑𝚎𝚎" ☠️`;
 
       await sock.sendMessage(ownerJid, { text: alertText }, { quoted: fakeQuote });
       console.log(chalk.green(`[NEON-ANTIBUG] ✅ Owner alerted`));
