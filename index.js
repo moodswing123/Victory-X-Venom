@@ -153,7 +153,7 @@ const isPremiumUser = (chatId) => {
 const getPremiumDeniedMessage = (chatId) => {
   const idStr = String(chatId);
   return {
-    text: `╔══════════════════════════════╗\n║   ACCESS DENIED ⚡   ║\n╚═══════════════════════════════════╝\n\n🌚 This bot is for NEON beings only.\n🗿 You are not a premium user.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📱 Your Telegram ID:\n<code>${idStr}</code>\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🔥 Want access?\n    1. Tap ID above to copy\n  「𖦠」 2. Send it to: ${OWNER_USERNAME}\n.   3. Wait for approval\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n   🗿 "Only the chosen shall enter"`,
+    text: `╔══════════════════════════════╗\n║   ACCESS DENIED ⚡   ║\n╚═══════════════════════════════════╝\n\n🌚 This bot is for supreme beings only.\n🗿 You are not a premium user.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📱 Your Telegram ID:\n<code>${idStr}</code>\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🔥 Want access?\n    1. Tap ID above to copy\n  「𖦠」 2. Send it to: ${OWNER_USERNAME}\n.   3. Wait for approval\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n   🗿 "Only the chosen shall enter"`,
     options: { parse_mode: 'HTML' }
   };
 };
