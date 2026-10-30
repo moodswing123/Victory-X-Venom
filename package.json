@@ -24,7 +24,8 @@
     "node-telegram-bot-api": "^0.66.0",
     "parse-ms": "^2.1.0",
     "socks-proxy-agent": "^8.0.5",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "pino": "10.3.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
